@@ -1,6 +1,6 @@
->**<i class="icon-user"></i> Members:**
+###Members
 
-> - Víctor del Valle
-> - Gerard Duch
-> - Felix Hortelano
-> - Oriol Mominó
+ - Víctor del Valle
+ - Gerard Duch
+ - Felix Hortelano
+ - Oriol Mominó

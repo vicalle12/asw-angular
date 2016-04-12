@@ -1,0 +1,12 @@
+
+
+Started GET "/" for 147.83.247.44 at 2016-04-12 09:10:05 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/railties-4.2.2/lib/rails/templates/rails/welcome/index.html.erb (8.3ms)
+Completed 200 OK in 42ms (Views: 25.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 147.83.247.44 at 2016-04-12 09:12:16 +0000
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 41ms (Views: 20.1ms | ActiveRecord: 0.0ms)

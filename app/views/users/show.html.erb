@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user.user %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= @user.created %>
+</p>
+
+<p>
+  <strong>Karma:</strong>
+  <%= @user.karma %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @user.about %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Showdead:</strong>
+  <%= @user.showdead %>
+</p>
+
+<p>
+  <strong>Noprocrast:</strong>
+  <%= @user.noprocrast %>
+</p>
+
+<p>
+  <strong>Maxvisit:</strong>
+  <%= @user.maxvisit %>
+</p>
+
+<p>
+  <strong>Minaway:</strong>
+  <%= @user.minaway %>
+</p>
+
+<p>
+  <strong>Delay:</strong>
+  <%= @user.delay %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

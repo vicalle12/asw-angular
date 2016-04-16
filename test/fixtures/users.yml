@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  password: MyString
+  created: 1
+  karma: 1
+  about: MyString
+  email: MyString
+  showdead: false
+  noprocrast: false
+  maxvisit: 1
+  minaway: 1
+  delay: 1
+
+two:
+  user: MyString
+  password: MyString
+  created: 1
+  karma: 1
+  about: MyString
+  email: MyString
+  showdead: false
+  noprocrast: false
+  maxvisit: 1
+  minaway: 1
+  delay: 1

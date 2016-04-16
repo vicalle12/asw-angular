@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<div class="col-md-8">
+  <% if @user.contributions.any? %>
+    <h3>Contributions (<%= @user.contributions.count %>)</h3>
+    <ol class="contributions">
+      <%= render @contributions %>
+    </ol>
+    <%= will_paginate @contributions %>
+  <% end %>
+</div>
+
+
+<h1>Listing Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Password</th>
+      <th>Created</th>
+      <th>Karma</th>
+      <th>About</th>
+      <th>Email</th>
+      <th>Showdead</th>
+      <th>Noprocrast</th>
+      <th>Maxvisit</th>
+      <th>Minaway</th>
+      <th>Delay</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.user %></td>
+        <td><%= user.password %></td>
+        <td><%= user.created %></td>
+        <td><%= user.karma %></td>
+        <td><%= user.about %></td>
+        <td><%= user.email %></td>
+        <td><%= user.showdead %></td>
+        <td><%= user.noprocrast %></td>
+        <td><%= user.maxvisit %></td>
+        <td><%= user.minaway %></td>
+        <td><%= user.delay %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h3>Login</h3>
+
+
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

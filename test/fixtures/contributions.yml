@@ -2,20 +2,29 @@
 
 one:
   titulo: MyString
-  user_id: 
+  user_id: 1
   url: MyString
-  fecha: MyString
   puntos: 1
-  comentarios: MyString
+  comentarios: MyText
   tipo: MyString
-  text: MyString
+  text: MyText
 
 two:
   titulo: MyString
-  user_id: 
+  user_id: 1
   url: MyString
-  fecha: MyString
   puntos: 1
-  comentarios: MyString
+  comentarios: MyText
   tipo: MyString
-  text: MyString
+  text: MyText
+
+most_recent:
+  titulo: MyString
+  user_id: 1
+  url: MyString
+  puntos: 1
+  comentarios: MyText
+  tipo: MyString
+  text: MyText
+  created_at: <%= Time.zone.now %>
+  

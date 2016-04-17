@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<div class="col-md-8">
-  <% if @user.contributions.any? %>
-    <h3>Contributions (<%= @user.contributions.count %>)</h3>
-    <ol class="contributions">
-      <%= render @contributions %>
-    </ol>
-    <%= will_paginate @contributions %>
-  <% end %>
-</div>
-
 
 <h1>Listing Users</h1>
 

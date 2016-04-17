@@ -1,22 +1,74 @@
 class ContributionsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy]
+  before_action :set_contribution, only: [:show, :edit, :update, :destroy]
 
+  # GET /contributions
+  # GET /contributions.json
+  def index
+    @contributions = Contribution.all
+  end
+
+  # GET /contributions/1
+  # GET /contributions/1.json
+  def show
+  end
+
+  # GET /contributions/new
+  def new
+    @contribution = Contribution.new
+  end
+
+  # GET /contributions/1/edit
+  def edit
+  end
+
+  # POST /contributions
+  # POST /contributions.json
   def create
-    @contributions = current_user.microposts.build(contributions_params)
-    if @contributions.save
-      flash[:success] = "Micropost created!"
-      redirect_to root_url
-    else
-      render 'static_pages/home'
+    @contribution = Contribution.new(contribution_params)
+
+    respond_to do |format|
+      if @contribution.save
+        format.html { redirect_to @contribution, notice: 'Contribution was successfully created.' }
+        format.json { render :show, status: :created, location: @contribution }
+      else
+        format.html { render :new }
+        format.json { render json: @contribution.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # PATCH/PUT /contributions/1
+  # PATCH/PUT /contributions/1.json
+  def update
+    respond_to do |format|
+      if @contribution.update(contribution_params)
+        format.html { redirect_to @contribution, notice: 'Contribution was successfully updated.' }
+        format.json { render :show, status: :ok, location: @contribution }
+      else
+        format.html { render :edit }
+        format.json { render json: @contribution.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /contributions/1
+  # DELETE /contributions/1.json
   def destroy
+    @contribution.destroy
+    respond_to do |format|
+      format.html { redirect_to contributions_url, notice: 'Contribution was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_contribution
+      @contribution = Contribution.find(params[:id])
+    end
 
-    def contributions_params
-      params.require(:contributions).permit(:content)
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def contribution_params
+      params.require(:contribution).permit(:titulo, :user_id, :url, :puntos, :comentarios, :tipo, :text)
     end
 end

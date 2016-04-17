@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @contribution.titulo %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @contribution.user_id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @contribution.url %>
+</p>
+
+<p>
+  <strong>Puntos:</strong>
+  <%= @contribution.puntos %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @contribution.comentarios %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @contribution.tipo %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @contribution.text %>
+</p>
+
+<%= link_to 'Edit', edit_contribution_path(@contribution) %> |
+<%= link_to 'Back', contributions_path %>

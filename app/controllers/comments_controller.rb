@@ -24,8 +24,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @user = Users.all.find(user123)
-    @contribution = @user.contributions.find(params[:contribution_id])
+    #@user = Comment.new(name: "asdkdkdkd")
+    #@contribution = " "
+    # @user.contributions.find(params[:contribution_id])
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
@@ -71,6 +72,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :contrbution_id_id, :user_id)
+      params.require(:comment).permit(:content)
     end
 end

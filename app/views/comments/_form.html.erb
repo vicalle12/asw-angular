@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.hidden_field(:contribution_id, :value => 9) %>
+  </div>
+  
+   <div class="field">
+    <%= f.hidden_field(:user_id, :value => 5) %>
+  </div>
+  
+  <div class="field">
     <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>

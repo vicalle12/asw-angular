@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :replies
+  resources :comments
   get 'comment/new'
 
   resources :users
@@ -13,7 +15,9 @@ Rails.application.routes.draw do
   
   get 'login' => 'users#new'
   
-  # get 'contributions' => 'contributions#index'
+  get 'contributions' => 'contributions#index'
+  
+  # get 'comments' => 'comments#new'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

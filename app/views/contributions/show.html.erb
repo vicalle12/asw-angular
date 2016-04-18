@@ -1,3 +1,29 @@
+<span>
+    <%= @contribution.titulo %>
+  </span>
+  
+  <span>
+    (<%= @contribution.url %>)
+  </span>
+  
+  <span>
+    <%= @contribution.puntos %>
+  </span>
+  
+  <br>
+  
+  <span>
+    points by
+  </span>
+
+  <span>
+     <%= link_to @contribution.user.name, @contribution.user %>
+  </span>
+  
+  <span>
+    <%= link_to time_ago_in_words(@contribution.created_at), @contribution %>
+  </span>
+
 <% if @contribution.comments.empty? %>
   <h2>Comments</h2>
   <%= render @contribution.comments %>

@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Username</th>
       <th>Password</th>
       <th>Created</th>
       <th>Karma</th>
@@ -24,7 +24,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.user %></td>
+        <td><%= user.name %></td>
         <td><%= user.password %></td>
         <td><%= user.created %></td>
         <td><%= user.karma %></td>

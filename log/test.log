@@ -1423,3 +1423,63 @@ ContributionTest: test_user_id_should_be_present
 ------------------------------------------------
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("user", "password", "created", "karma", "about", "email", "showdead", "noprocrast", "maxvisit", "minaway", "delay", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'f', 'f', 1, 1, 1, '2016-04-18 11:02:40', '2016-04-18 11:02:40', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("user", "password", "created", "karma", "about", "email", "showdead", "noprocrast", "maxvisit", "minaway", "delay", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 1, 1, 'MyString', 'MyString', 'f', 'f', 1, 1, 1, '2016-04-18 11:02:40', '2016-04-18 11:02:40', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "contributions"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "contributions" ("titulo", "user_id", "url", "puntos", "comentarios", "tipo", "text", "created_at", "updated_at", "id") VALUES ('MyString', 1, 'MyString', 1, 'MyText', 'MyString', 'MyText', '2016-04-18 11:02:40', '2016-04-18 11:02:40', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "contributions" ("titulo", "user_id", "url", "puntos", "comentarios", "tipo", "text", "created_at", "updated_at", "id") VALUES ('MyString', 1, 'MyString', 1, 'MyText', 'MyString', 'MyText', '2016-04-18 11:02:40', '2016-04-18 11:02:40', 298486374)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "contributions" ("titulo", "user_id", "url", "puntos", "comentarios", "tipo", "text", "created_at", "updated_at", "id") VALUES ('MyString', 1, 'MyString', 1, 'MyText', 'MyString', 'MyText', '2016-04-18 11:02:40 UTC', '2016-04-18 11:02:40', 941832919)[0m
+  [1m[35m (11.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------
+UserTest: test_associated_contributions_should_be_destroyed
+-----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "users" ("user", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user", "Example User"], ["email", "user@example.com"], ["password", "foobar"], ["created_at", "2016-04-18 11:02:40.178981"], ["updated_at", "2016-04-18 11:02:40.178981"]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "contributions" ("titulo", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["titulo", "Lorem ipsum"], ["user_id", 980190963], ["created_at", "2016-04-18 11:02:40.272719"], ["updated_at", "2016-04-18 11:02:40.272719"]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "contributions"
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mContribution Load (0.2ms)[0m  SELECT "contributions".* FROM "contributions" WHERE "contributions"."user_id" = ?  ORDER BY "contributions"."created_at" DESC  [["user_id", 980190963]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "contributions" WHERE "contributions"."id" = ?[0m  [["id", 980190963]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = ?  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "contributions"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------
+ContributionTest: test_order_should_be_most_recent_first
+--------------------------------------------------------
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mContribution Load (0.1ms)[0m  SELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ? LIMIT 1  [["id", 941832919]]
+  [1m[36mContribution Load (0.5ms)[0m  [1mSELECT  "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------
+ContributionTest: test_content_should_be_at_most_140_characters
+---------------------------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------
+ContributionTest: test_content_should_be_present
+------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ContributionTest: test_should_be_valid
+--------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------
+ContributionTest: test_user_id_should_be_present
+------------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction

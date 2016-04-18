@@ -2,7 +2,7 @@ class CreateContributions < ActiveRecord::Migration
   def change 
     create_table :contributions do |t| 
       t.string :titulo 
-      t.references :user_id, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
       t.string :url 
       t.integer :puntos 
       t.text :comentarios 

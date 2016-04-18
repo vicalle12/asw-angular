@@ -1,5 +1,25 @@
-<p id="notice"><%= notice %></p>
+<li id="notice"><%= notice %>
+  <span>
+    <strong>Titulo:</strong>
+    <%= @contribution.titulo %>
+  </span>
+  <span>
+    <strong>Url:</strong>
+    <%= @contribution.url %>
+  </span>
+  <span>
+    <strong>User:</strong>
+    <%= @contribution.user.name %>
+  </span>
+  <span>
+    Posted <%= time_ago_in_words(@contribution.created_at) %> ago.
+  </span>
+  <span>
+    | <%= @contribution.comentarios %> <!-- cambiar cuando comentarios -->
+  </span>
+</li>
 
+<% if false%>
 <p>
   <strong>Titulo:</strong>
   <%= @contribution.titulo %>
@@ -34,6 +54,8 @@
   <strong>Text:</strong>
   <%= @contribution.text %>
 </p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_contribution_path(@contribution) %> |
 <%= link_to 'Back', contributions_path %>

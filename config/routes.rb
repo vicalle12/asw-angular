@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'comment/new'
+
   resources :users
   resources :contributions
+  resources :replies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -10,7 +13,7 @@ Rails.application.routes.draw do
   
   get 'login' => 'users#new'
   
-  get 'contributions' => 'contributions#index'
+  # get 'contributions' => 'contributions#index'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

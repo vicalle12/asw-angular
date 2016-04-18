@@ -1,3 +1,40 @@
+<% if @contribution.comments.empty? %>
+  <h2>Comments</h2>
+  <%= render @contribution.comments %>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+  <%=if false
+  form_for(@comment) do |t| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= t.label :content %><br>
+    <%= t.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= t.submit %>
+  </div>
+<% end %>
+<% end %>
+
+
+
+<!--TODO ESTO NO SE HACE NUNCA -->
+<% if false%>
 <li id="notice"><%= notice %>
   <span>
     <strong>Titulo:</strong>
@@ -18,6 +55,7 @@
     | <%= @contribution.comentarios %> <!-- cambiar cuando comentarios -->
   </span>
 </li>
+<% end %>
 
 <% if false%>
 <p>

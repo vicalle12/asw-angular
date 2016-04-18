@@ -15,7 +15,7 @@
   <br>
   
   <span>
-    Points by
+    points by
   </span>
 
   <span>
@@ -26,6 +26,9 @@
     <%= link_to time_ago_in_words(contribution.created_at), contribution %>
   </span>
   
+  <span>
+    <%= link_to "#{contribution.comments.size} comments", contribution %>
+  </span>
   <span>
     <%= link_to 'Destroy', contribution, method: :delete, data: { confirm: 'Are you sure?' } %>
   </span>

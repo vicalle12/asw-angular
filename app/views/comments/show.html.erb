@@ -1,0 +1,13 @@
+<% provide(:title, @comment.comment) %>
+<div>
+  <aside>
+    <section>
+      <h1>
+        <%= @comment.comment %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

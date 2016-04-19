@@ -7,11 +7,21 @@ Rails.application.routes.draw do
   resources :contributions
   resources :replies
   
+  
   resources :users do
     member do
-      get :contributions
+      get :contributions, :comments, :replies
     end
   end
+  
+  resources :contributions do
+      resources :comments
+  end
+  
+  resources :comments do
+      resources :replies
+  end
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,12 +29,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'contributions#index'
-  
-  get 'login' => 'users#new'
-  
-  get 'users' => 'users#index'
-  
-  get 'contributions' => 'contributions#index'
+
+  get 'home' => 'layouts#home'
   
   # get 'comments' => 'comments#new'
   

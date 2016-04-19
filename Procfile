@@ -1,2 +1,2 @@
-bundle exec rackup
-rails server
+web: bundle exec rackup
+web: rails server

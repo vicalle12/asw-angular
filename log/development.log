@@ -23313,3 +23313,21 @@ Processing by CommentsController#index as HTML
   [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"  ORDER BY "comments"."created_at" DESC[0m
   Rendered comments/index.html.erb within layouts/application (8.7ms)
 Completed 200 OK in 60ms (Views: 57.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/comments" for 147.83.247.42 at 2016-04-19 08:17:59 +0000
+Processing by CommentsController#index as HTML
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments"  ORDER BY "comments"."created_at" DESC
+  Rendered comments/index.html.erb within layouts/application (13.6ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.5ms)
+
+NoMethodError (undefined method `id' for nil:NilClass):
+  app/views/comments/index.html.erb:16:in `block in _app_views_comments_index_html_erb__3154412424120844562_69839656661600'
+  app/views/comments/index.html.erb:13:in `_app_views_comments_index_html_erb__3154412424120844562_69839656661600'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (11.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (6.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (142.0ms)

@@ -17,10 +17,16 @@
   </div>
   
   <div class="field">
-    <%= f.hidden_field(:contribution, :value => @contribution.id) %>
+    <%= f.text_field(:contribution_id, :value => @contribution.id) %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
   </div>
   
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

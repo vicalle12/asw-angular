@@ -11,11 +11,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'users#index'
+  root 'contributions#index'
   
   get 'login' => 'users#new'
   
   get 'contributions' => 'contributions#index'
+  
+  get '/replies' => 'replies#new'
   
   # get 'comments' => 'comments#new'
   

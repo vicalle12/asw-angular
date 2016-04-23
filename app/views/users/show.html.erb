@@ -1,12 +1,16 @@
-<% provide(:title, @user.name) %>
-<div>
-  <aside>
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-</div>
-<%= link_to 'Contributions', contributions_path(@user) %> |
-<%= link_to 'Comments', users_path %>
+<table>
+  <tbody>
+    <tr>
+      <td>User</td>
+      <td> <%=@user.name %> </td>
+    </tr>
+    <tr>
+      <td>karma</td>
+      <td><%=@user.karma %></td>
+    </tr>
+    <tr>
+      <td>about</td>
+      <td><%=@user.about %></td>
+    </tr>
+  </tbody>
+</table>

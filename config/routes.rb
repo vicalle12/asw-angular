@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  resources :replies
-  resources :comments
+  
   get 'comment/new'
 
   resources :users
   resources :contributions
   resources :replies
+  resources :comments
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   
   get 'contributions' => 'contributions#index'
   
-  get '/replies' => 'replies#new'
+  post '/replies' => 'replies#new'
   
   # get 'comments' => 'comments#new'
   

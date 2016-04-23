@@ -36414,3 +36414,498 @@ Processing by ContributionsController#index as HTML
   Rendered contributions/_contribution.html.erb (28.6ms)
   Rendered contributions/index.html.erb within layouts/application (33.9ms)
 Completed 200 OK in 103ms (Views: 99.4ms | ActiveRecord: 2.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_contribution_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_contribution_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (2.8ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_contribution_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_contribution_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_contributions_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_contributions_on_user_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_contributions_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_contributions_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_contribution_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_contribution_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_replies_on_comment_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_replies_on_comment_id_and_created_at' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_replies_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_replies_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_replies_on_comment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_replies_on_comment_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_replies_on_contribution_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_replies_on_contribution_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_replies_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_replies_on_user_id' AND type='index'
+[0m
+
+
+Started GET "/" for 2.136.11.250 at 2016-04-23 09:16:27 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ContributionsController#index as HTML
+  [1m[35mContribution Load (0.4ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (158.3ms)
+  Rendered contributions/index.html.erb within layouts/application (204.7ms)
+Completed 200 OK in 736ms (Views: 678.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/contributions" for 2.136.11.250 at 2016-04-23 09:16:32 +0000
+Processing by ContributionsController#index as HTML
+  [1m[35mContribution Load (0.5ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (36.4ms)
+  Rendered contributions/index.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 125ms (Views: 121.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/contributions/9" for 2.136.11.250 at 2016-04-23 09:16:34 +0000
+Processing by ContributionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mContribution Load (0.4ms)[0m  SELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ?  ORDER BY "contributions"."created_at" DESC LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered comments/_newComment.html.erb (78.6ms)
+  [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."contribution_id" = ?  ORDER BY "comments"."created_at" DESC  [["contribution_id", 9]]
+  [1m[36mReply Load (0.7ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 19]]
+  [1m[35mReply Load (0.2ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 18]]
+  [1m[36mReply Load (0.1ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 17]]
+  Rendered contributions/show.html.erb within layouts/application (136.3ms)
+Completed 200 OK in 275ms (Views: 232.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 2.136.11.250 at 2016-04-23 09:30:59 +0000
+Processing by ContributionsController#index as HTML
+  [1m[35mContribution Load (0.5ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (105.1ms)
+  Rendered contributions/index.html.erb within layouts/application (112.7ms)
+Completed 200 OK in 185ms (Views: 179.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:30:59 +0000
+
+
+Started GET "/assets/contributions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:30:59 +0000
+
+
+Started GET "/assets/scaffolds.self-d2e5ccad1506299feea3a35bfb7c525e101bb3b214303715deb675fdc539948b.css?body=1" for 2.136.11.250 at 2016-04-23 09:30:59 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:30:59 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/replies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/replies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/contributions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 2.136.11.250 at 2016-04-23 09:31:00 +0000
+
+
+Started GET "/contributions/9" for 2.136.11.250 at 2016-04-23 09:31:01 +0000
+Processing by ContributionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mContribution Load (0.2ms)[0m  SELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ?  ORDER BY "contributions"."created_at" DESC LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered comments/_newComment.html.erb (2.4ms)
+  [1m[35mComment Load (4.6ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."contribution_id" = ?  ORDER BY "comments"."created_at" DESC  [["contribution_id", 9]]
+  [1m[36mReply Load (0.2ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 19]]
+  [1m[35mReply Load (0.1ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 18]]
+  [1m[36mReply Load (0.1ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 17]]
+  Rendered contributions/show.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 83ms (Views: 74.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/comments/19" for 2.136.11.250 at 2016-04-23 09:31:02 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mComment Load (0.5ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 1  [["id", 19]]
+  Rendered comments/show.html.erb within layouts/application (24.4ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.5ms)
+
+ActionView::MissingTemplate (Missing partial replies/_index with {:locale=>[:en], :formats=>[:html, :xml], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates"
+  * "/home/ubuntu/workspace/app/views"
+  * "/usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/app/views"
+):
+  app/views/comments/show.html.erb:12:in `_app_views_comments_show_html_erb___2708734569942356318_70151078515720'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/missing_template.html.erb within rescues/layout (1.3ms)
+
+
+Started GET "/comments/19" for 2.136.11.250 at 2016-04-23 09:31:02 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 1[0m  [["id", 19]]
+  Rendered comments/show.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.3ms)
+
+ActionView::MissingTemplate (Missing partial replies/_index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates"
+  * "/home/ubuntu/workspace/app/views"
+  * "/usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/app/views"
+):
+  app/views/comments/show.html.erb:12:in `_app_views_comments_show_html_erb___2708734569942356318_70151079587800'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/missing_template.html.erb within rescues/layout (0.6ms)
+
+
+Started GET "/comments/19" for 2.136.11.250 at 2016-04-23 09:32:05 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mComment Load (0.3ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 1  [["id", 19]]
+  Rendered replies/_index.html.erb (11.5ms)
+  Rendered comments/show.html.erb within layouts/application (15.0ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.3ms)
+
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/views/replies/_index.html.erb:13:in `_app_views_replies__index_html_erb__3799654282330603780_70151080928940'
+  app/views/comments/show.html.erb:12:in `_app_views_comments_show_html_erb___2708734569942356318_70151080922980'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (9.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (105.7ms)
+
+
+Started GET "/comments/19" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 1[0m  [["id", 19]]
+  Rendered replies/_form.html.erb (4.9ms)
+  Rendered comments/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 159ms (Views: 155.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/scaffolds.self-d2e5ccad1506299feea3a35bfb7c525e101bb3b214303715deb675fdc539948b.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/replies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/contributions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/contributions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/replies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 2.136.11.250 at 2016-04-23 09:34:28 +0000
+
+
+Started GET "/contributions/9" for 2.136.11.250 at 2016-04-23 09:34:30 +0000
+Processing by ContributionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mContribution Load (0.3ms)[0m  SELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ?  ORDER BY "contributions"."created_at" DESC LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered comments/_newComment.html.erb (2.6ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."contribution_id" = ?  ORDER BY "comments"."created_at" DESC  [["contribution_id", 9]]
+  [1m[36mReply Load (0.2ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 19]]
+  [1m[35mReply Load (0.2ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 18]]
+  [1m[36mReply Load (0.1ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 17]]
+  Rendered contributions/show.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 73ms (Views: 68.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 2.136.11.250 at 2016-04-23 09:42:18 +0000
+Processing by ContributionsController#index as HTML
+  [1m[35mContribution Load (0.6ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (21.8ms)
+  Rendered contributions/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 93ms (Views: 88.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/contributions/9" for 2.136.11.250 at 2016-04-23 09:45:13 +0000
+Processing by ContributionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mContribution Load (0.4ms)[0m  SELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ?  ORDER BY "contributions"."created_at" DESC LIMIT 1  [["id", 9]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered comments/_newComment.html.erb (3.0ms)
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."contribution_id" = ?  ORDER BY "comments"."created_at" DESC  [["contribution_id", 9]]
+  [1m[36mReply Load (0.3ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 19]]
+  [1m[35mReply Load (0.2ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 18]]
+  [1m[36mReply Load (0.2ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 17]]
+  Rendered contributions/show.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 100ms (Views: 94.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/16" for 2.136.11.250 at 2016-04-23 09:45:16 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 87ms (Views: 77.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/16" for 2.136.11.250 at 2016-04-23 09:46:11 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 113ms (Views: 109.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/16" for 2.136.11.250 at 2016-04-23 09:46:13 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 83ms (Views: 80.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/16" for 2.136.11.250 at 2016-04-23 09:46:15 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 75ms (Views: 72.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/16" for 2.136.11.250 at 2016-04-23 09:51:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 135ms (Views: 132.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contributions.16" for 2.136.11.250 at 2016-04-23 09:51:42 +0000
+Processing by ContributionsController#index as 
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (16.7ms)
+  Rendered contributions/index.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 141ms (Views: 138.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/contributions/9" for 2.136.11.250 at 2016-04-23 10:07:50 +0000
+Processing by ContributionsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mContribution Load (0.4ms)[0m  [1mSELECT  "contributions".* FROM "contributions" WHERE "contributions"."id" = ?  ORDER BY "contributions"."created_at" DESC LIMIT 1[0m  [["id", 9]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered comments/_newComment.html.erb (2.3ms)
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."contribution_id" = ?  ORDER BY "comments"."created_at" DESC[0m  [["contribution_id", 9]]
+  [1m[35mReply Load (0.4ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 19]]
+  [1m[36mReply Load (0.1ms)[0m  [1mSELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?[0m  [["comment_id", 18]]
+  [1m[35mReply Load (0.2ms)[0m  SELECT "replies".* FROM "replies" WHERE "replies"."comment_id" = ?  [["comment_id", 17]]
+  Rendered contributions/show.html.erb within layouts/application (64.6ms)
+Completed 200 OK in 199ms (Views: 108.3ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/comments/19" for 2.136.11.250 at 2016-04-23 10:07:51 +0000
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ?  ORDER BY "comments"."created_at" DESC LIMIT 1[0m  [["id", 19]]
+  Rendered replies/_form.html.erb (3.1ms)
+  Rendered comments/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/replies" for 2.136.11.250 at 2016-04-23 10:07:55 +0000
+Processing by RepliesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M13pMtXG1cXXXNfoR7P7+VNslrB8qp4RGCpwLnJmxdryaqAN87r7hvtqr/BxVv6jFkW1PcnNkTvbVy+8N28Stw==", "reply"=>{"content"=>"lalaalala", "comment_id"=>"19", "contribution_id"=>"9", "user_id"=>"6"}, "commit"=>"Create Reply"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "replies" ("content", "user_id", "contribution_id", "comment_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "lalaalala"], ["user_id", 6], ["contribution_id", 9], ["comment_id", 19], ["created_at", "2016-04-23 10:07:55.480180"], ["updated_at", "2016-04-23 10:07:55.480180"]]
+  [1m[35m (14.0ms)[0m  commit transaction
+Redirected to https://hacker-news-fhb-felixhb.c9users.io/replies/9
+Completed 302 Found in 23ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/replies/9" for 2.136.11.250 at 2016-04-23 10:07:55 +0000
+Processing by RepliesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mReply Load (0.3ms)[0m  [1mSELECT  "replies".* FROM "replies" WHERE "replies"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered replies/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contributions" for 2.136.11.250 at 2016-04-23 10:07:58 +0000
+Processing by ContributionsController#index as HTML
+  [1m[35mContribution Load (0.4ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 9]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 9]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 8]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 2]]
+  Rendered contributions/_contribution.html.erb (28.8ms)
+  Rendered contributions/index.html.erb within layouts/application (35.6ms)
+Completed 200 OK in 92ms (Views: 85.9ms | ActiveRecord: 5.0ms)

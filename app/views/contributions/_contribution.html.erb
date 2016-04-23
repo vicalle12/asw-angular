@@ -27,7 +27,7 @@
   </span>
   
   <span>
-    <%= link_to "#{contribution.comments.size} comments", contribution %>
+    <%= link_to "#{contribution.comments.size + contribution.replies.size} comments", contribution %>
   </span>
   <span>
     <%= link_to 'Destroy', contribution, method: :delete, data: { confirm: 'Are you sure?' } %>

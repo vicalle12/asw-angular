@@ -1,23 +1,48 @@
 Rails.application.routes.draw do
-  resources :replies
-  resources :comments
+  root 'static_pages#home'
+
+  resources :static_pages
   get 'comment/new'
+  
+  get 'static_pages/home'
 
   resources :users
   resources :contributions
   resources :replies
+  resources :comments
+  
+  resources :static_pages do
+    resources :contributions
+  end
+  
+  resources :users do
+    member do
+      get :contributions, :comments, :replies
+    end
+  end
+  
+  resources :contributions do
+      resources :comments
+  end
+  
+  resources :comments do
+      resources :replies
+  end
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'contributions#index'
+
+  get 'home' => 'layouts#home'
   
   get 'login' => 'users#new'
   
   get 'contributions' => 'contributions#index'
   
-  get '/replies' => 'replies#new'
+  post '/replies' => 'replies#new'
   
   get '/auth/twitter/callback', to: 'sessions#create'
   

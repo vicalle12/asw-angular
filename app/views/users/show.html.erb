@@ -12,5 +12,12 @@
       <td>about</td>
       <td><%=@user.about %></td>
     </tr>
+    <tr>
+      <td> <%= link_to 'submissions', contributions_path(@user) %> </td>
+    </tr>
+    <tr>
+      <td> <%= link_to 'comments', users_path %> </td>
+    </tr>
   </tbody>
 </table>
+

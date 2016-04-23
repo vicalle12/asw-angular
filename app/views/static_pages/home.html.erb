@@ -21,8 +21,18 @@
       
           <div class="item">
             <span class="rank"><%= index %>.</span>
-            <span><%= contribution.titulo %></span>
-            <span class="url">(<%= contribution.url %>)</span>
+            <div>
+            <div>
+                <span><%= contribution.titulo %> </span>
+                <span class="url">(<%= contribution.url %>)</span>
+            </div>
+            <div>
+                <span><%= contribution.puntos %> points,</span>
+                <span>by <%= link_to "#{getAuthor(contribution.user_id)}", "/users/#{contribution.user_id}", {style: "color: grey"}%></span>
+                <span><%= link_to "#{time_ago_in_words(contribution.created_at)} ago", contribution %> </span>
+                <span><%= link_to "#{contribution.comments.size + contribution.replies.size} comments", contribution %></span>
+            </div>
+            </div>
           </div>
         
         <% end %>

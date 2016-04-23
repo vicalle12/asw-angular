@@ -12,6 +12,10 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :maxvisit
       t.integer :minaway
       t.integer :delay
+      
+      #cosas añadidas para twitter
+      t.string :provider
+      t.string :uid
 
       t.timestamps null: false
     end

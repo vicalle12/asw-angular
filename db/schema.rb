@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418144542) do
+ActiveRecord::Schema.define(version: 20160423111626) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20160418144542) do
     t.integer  "delay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end

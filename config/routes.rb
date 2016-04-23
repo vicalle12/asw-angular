@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :static_pages
-  resources :replies
-  resources :comments
   get 'comment/new'
   
   get 'static_pages/home'
@@ -11,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :contributions
   resources :replies
+  resources :comments
   
   resources :static_pages do
     resources :contributions
@@ -42,10 +41,8 @@ Rails.application.routes.draw do
   get 'login' => 'users#new'
   
   get 'contributions' => 'contributions#index'
-
-  get '/replies' => 'replies#new'
   
-  
+  post '/replies' => 'replies#new'
   
   # get 'comments' => 'comments#new'
   

@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+
+  resources :static_pages
   resources :replies
   resources :comments
   get 'comment/new'
+  
+  get 'static_pages/home'
 
   resources :users
   resources :contributions
   resources :replies
   
+  resources :static_pages do
+    resources :contributions
+  end
   
   resources :users do
     member do
@@ -28,9 +36,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'contributions#index'
 
   get 'home' => 'layouts#home'
+  
+  get 'login' => 'users#new'
+  
+  get 'contributions' => 'contributions#index'
+
+  get '/replies' => 'replies#new'
+  
+  
   
   # get 'comments' => 'comments#new'
   

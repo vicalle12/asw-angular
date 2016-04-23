@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+.page {
+    margin: 10px auto;
+    max-width: 85%;
+    background: #F6F6EF;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    background: #FF6600;
+}
+
+.header-top h1 {
+    line-height: 15px;
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+.header-top .links {
+    width: 70%;
+}
+
+.header-top .user { 
+    padding: 0 15px;
+}
+
+.home-content {
+    padding: 20px 15px;
+}

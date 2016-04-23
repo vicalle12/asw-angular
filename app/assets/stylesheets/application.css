@@ -69,19 +69,19 @@
     font-size: 10px;
 }
 
-.contributions .item a {
+body a {
     text-decoration: none;
     transition: all 0.5s ease;
     position: relative;
     display: inline-block;
 }
 
-.contributions .item a:hover {
+body a:hover {
     color: #000;
     background: initial;
 }
 
-.contributions .item  a:before {
+body a:before {
     content: "";
     display: table;
     height: 1px;
@@ -92,7 +92,7 @@
     transition: width 0.5s ease;
 }
 
-.contributions .item a:hover:before {
+body a:hover:before {
     width: 100%;
     
 }

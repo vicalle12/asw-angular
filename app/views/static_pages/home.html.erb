@@ -3,18 +3,10 @@
   <head>
     <title>Home | Hacker News</title>
   </head>
-  <body>
-      <div class="page">
-    <div class="header-top">
-        <h1>Hacker News</h1>
-        <div class="links">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-        </div>
-        <div class="user">Victor</div>
-    </div>
+    <%= render 'header' %>
+    <%= render 'menu' %>
     
-    <div class="home-content">
+    <div class="page-content">
       <div class="contributions">
           
         <% @contributions.each.with_index(1) do |contribution, index| %>
@@ -40,6 +32,6 @@
       </div>
       
     </div>
-    </div>
-  </body>
+    <%= render 'footer' %>
+  
 </html>

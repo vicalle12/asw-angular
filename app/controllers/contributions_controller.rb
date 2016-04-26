@@ -1,6 +1,18 @@
 class ContributionsController < ApplicationController
   before_action :set_contribution, only: [:show, :edit, :update, :destroy]
 
+  def upvote 
+    @contributions = Contribution.find(params[:id])
+    @contributions.upvote_by current_user
+    redirect_to :back
+  end  
+  
+  def downvote
+    @contributions = Contribution.find(params[:id])
+    @contributions.downvote_by current_user
+    redirect_to :back
+  end
+
   # GET /contributions
   # GET /contributions.json
   def index

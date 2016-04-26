@@ -30,6 +30,27 @@ Rails.application.routes.draw do
   end
   
   
+  resources :contributions do
+  member do
+      put "like", to: "contributions#upvote"
+      put "dislike", to: "contributions#downvote"
+    end
+  end
+  
+  resources :comments do
+  member do
+      put "like", to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
+  
+  resources :replies do
+  member do
+      put "like", to: "replies#upvote"
+      put "dislike", to: "replies#downvote"
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   
   get '/auth/twitter/callback', to: 'sessions#create'
   
+  delete '/sign_out', to: 'sessions#destroy'
+  
   # get 'comments' => 'comments#new'
   
   # Example of regular route:

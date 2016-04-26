@@ -48846,3 +48846,412 @@ Processing by ContributionsController#show as HTML
   Rendered contributions/show.html.erb within layouts/application (23.3ms)
 Completed 200 OK in 84ms (Views: 79.3ms | ActiveRecord: 1.1ms)
 >>>>>>> 49c6c609007d9563f96f77f9a55e4818fef435e7
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:26:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mContribution Load (0.3ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (125.7ms)
+Completed 200 OK in 548ms (Views: 507.8ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:26:46 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:26:47 +0000
+
+
+Started GET "/auth/twitter/callback?oauth_token=v_MG8QAAAAAAuyj7AAABVFGtiTs&oauth_verifier=5KSCkijn4z3yd28MUmVb6ur6gEIBqDSm" for 147.83.201.97 at 2016-04-26 08:26:49 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"v_MG8QAAAAAAuyj7AAABVFGtiTs", "oauth_verifier"=>"5KSCkijn4z3yd28MUmVb6ur6gEIBqDSm"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? LIMIT 1  [["provider", "twitter"], ["uid", "380225236"]]
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:26:50 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 86ms (Views: 83.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:38:54 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:38:55 +0000
+
+
+Started GET "/auth/twitter/callback?oauth_token=sEpUMQAAAAAAuyj7AAABVFG4pRQ&oauth_verifier=7JRLiTiXYlnINdigrutB51gluUSqHivp" for 147.83.201.97 at 2016-04-26 08:38:56 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"sEpUMQAAAAAAuyj7AAABVFG4pRQ", "oauth_verifier"=>"7JRLiTiXYlnINdigrutB51gluUSqHivp"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? LIMIT 1[0m  [["provider", "twitter"], ["uid", "380225236"]]
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 34ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:38:58 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[35mContribution Load (0.6ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (42.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 2.7ms)
+
+NoMethodError (undefined method `image_url' for #<User:0x007fc916dec9c0>):
+  app/views/layouts/application.html.erb:21:in `_app_views_layouts_application_html_erb__380805999508404546_70250827787260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (10.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (11.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (157.0ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:39:16 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms)
+
+SyntaxError (/home/ubuntu/workspace/app/views/layouts/application.html.erb:21: syntax error, unexpected tLABEL
+...ze;@output_buffer.append=( alt: current_user.name );@output_...
+...                               ^):
+  app/views/layouts/application.html.erb:21: syntax error, unexpected tLABEL
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (7.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (11.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (154.3ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:39:24 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/home/ubuntu/workspace/app/views/layouts/application.html.erb:21: syntax error, unexpected tLABEL
+...ze;@output_buffer.append=( alt: current_user.name );@output_...
+...                               ^):
+  app/views/layouts/application.html.erb:21: syntax error, unexpected tLABEL
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (14.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (106.6ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 80ms (Views: 78.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/application.self-b7d3f52b972bda43025035c813e13487abafcc8532c672ce33bb9d48fdc976f6.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/contributions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/replies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/scaffolds.self-d2e5ccad1506299feea3a35bfb7c525e101bb3b214303715deb675fdc539948b.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/contributions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/replies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:39:37 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:39:40 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:39:40 +0000
+
+
+Started GET "/auth/twitter/callback?oauth_token=3G1QkAAAAAAAuyj7AAABVFG5VYU&oauth_verifier=hhHBAIUVPjou2eP2Zb5m1XcdynTyZ2ug" for 147.83.201.97 at 2016-04-26 08:39:42 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"3G1QkAAAAAAAuyj7AAABVFG5VYU", "oauth_verifier"=>"hhHBAIUVPjou2eP2Zb5m1XcdynTyZ2ug"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? LIMIT 1[0m  [["provider", "twitter"], ["uid", "1336656294"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("provider", "uid", "name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["provider", "twitter"], ["uid", "1336656294"], ["name", "Felix Hortelano"], ["about", ""], ["created_at", "2016-04-26 08:39:43.957197"], ["updated_at", "2016-04-26 08:39:43.957197"]]
+  [1m[35m (17.3ms)[0m  commit transaction
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 29ms (ActiveRecord: 18.3ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:39:44 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.3ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (5.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:40:01 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[35mContribution Load (0.3ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (5.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 1.0ms)
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/views/layouts/application.html.erb:32:in `_app_views_layouts_application_html_erb__380805999508404546_70250820870600'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (5.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (138.5ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:40:10 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.4ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (8.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 128ms (Views: 125.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:10 +0000
+
+
+Started GET "/assets/application.self-b7d3f52b972bda43025035c813e13487abafcc8532c672ce33bb9d48fdc976f6.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/contributions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/scaffolds.self-d2e5ccad1506299feea3a35bfb7c525e101bb3b214303715deb675fdc539948b.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/replies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/replies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/contributions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 147.83.201.97 at 2016-04-26 08:40:11 +0000
+
+
+Started DELETE "/sign_out" for 147.83.201.97 at 2016-04-26 08:40:16 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2U0mGOjx/YEzG00Gl8ALli+pwsAyhwZSlwKH3/k6iE90VEdvFu5mo2tW/htvbf2XtCCKDk9ejLa6P9yl9UhBjQ=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:40:16 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.2ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.5ms)
+
+NoMethodError (undefined method `name' for nil:NilClass):
+  app/views/layouts/application.html.erb:32:in `_app_views_layouts_application_html_erb__380805999508404546_26523320'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_source.erb (5.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/web-console-2.0.0.beta3/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (90.5ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:41:11 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[36mContribution Load (0.4ms)[0m  [1mSELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 137ms (Views: 135.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:11 +0000
+
+
+Started GET "/assets/application.self-b7d3f52b972bda43025035c813e13487abafcc8532c672ce33bb9d48fdc976f6.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/contributions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/scaffolds.self-d2e5ccad1506299feea3a35bfb7c525e101bb3b214303715deb675fdc539948b.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/replies.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/replies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/contributions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/assets/turbolinks.self-c846e670826600e8c91b1a5ada3e6547110d996cd6ff24cde55024f7a135a1b4.js?body=1" for 147.83.201.97 at 2016-04-26 08:41:12 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:41:14 +0000
+
+
+Started GET "/auth/twitter" for 147.83.201.97 at 2016-04-26 08:41:14 +0000
+
+
+Started GET "/auth/twitter/callback?oauth_token=7A2vigAAAAAAuyj7AAABVFG6xQ0&oauth_verifier=RusOEXmKTOv6io6AH4T4JiGt9jBDhzsj" for 147.83.201.97 at 2016-04-26 08:41:15 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"oauth_token"=>"7A2vigAAAAAAuyj7AAABVFG6xQ0", "oauth_verifier"=>"RusOEXmKTOv6io6AH4T4JiGt9jBDhzsj"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? LIMIT 1[0m  [["provider", "twitter"], ["uid", "1336656294"]]
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:41:17 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[35mContribution Load (0.3ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (7.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 56ms (Views: 53.9ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/sign_out" for 147.83.201.97 at 2016-04-26 08:41:19 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aXAx/Qd7YJiD5ALloZEqF4NjMlmkbWsNYEdCTPgTBJbEaVCK+WT7utupsfhZPNwWGOp6l9m04elNehk29GHNVA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+Redirected to https://hacker-news-gerard-gerard94.c9users.io/
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 147.83.201.97 at 2016-04-26 08:41:19 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[35mContribution Load (0.2ms)[0m  SELECT "contributions".* FROM "contributions"  ORDER BY "contributions"."created_at" DESC
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."contribution_id" = ?  [["contribution_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "replies" WHERE "replies"."contribution_id" = ?[0m  [["contribution_id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 56ms (Views: 54.1ms | ActiveRecord: 0.7ms)

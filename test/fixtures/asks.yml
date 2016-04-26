@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  string: MyString
+  user: MyString
+  references: MyString
+  puntos: MyString
+  integer: MyString
+  content: MyString
+  text: MyString
+
+two:
+  titulo: MyString
+  string: MyString
+  user: MyString
+  references: MyString
+  puntos: MyString
+  integer: MyString
+  content: MyString
+  text: MyString

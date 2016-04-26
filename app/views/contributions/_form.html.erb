@@ -16,8 +16,9 @@
     <%= f.text_field :titulo %>
   </div>
   
-   <div class="field">
-     <%= f.hidden_field(:user_id, :value => 6) %> <!-- CAMBIAR CUANDO TENGAMOS USUARIOS -->
+
+  <div class="field">
+     <%= f.hidden_field(:user_id, :value => current_user.id) %>
   </div>
   
   <div class="field">

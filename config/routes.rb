@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   
   post '/replies' => 'replies#new'
   
+  get '/auth/twitter/callback', to: 'sessions#create'
+  
   # get 'comments' => 'comments#new'
   
   # Example of regular route:

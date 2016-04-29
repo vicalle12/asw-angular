@@ -1,0 +1,56 @@
+
+<%= render 'static_pages/header' %>
+    <%= render 'static_pages/menu' %>
+
+  <span>
+    <%= @ask.titulo %>
+  </span>
+  
+  <span>
+    <%= @ask.puntos %>
+  </span>
+  
+  <br>
+  
+  <span>
+    points by
+  </span>
+
+  <span>
+     <%= link_to @ask.user.name, @ask.user %>
+  </span>
+  
+  <span>
+    <%= link_to time_ago_in_words(@ask.created_at), @ask %>
+  </span>
+
+
+<h2>Add a comment:</h2>
+<%= render "comments/newComment" %>
+
+<%= link_to 'Edit', edit_ask_path(@ask) %> |
+<%= link_to 'Back', asks_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ask.comments.each do |comment| %>
+      <tr>
+        <br>
+        <td><%= comment.content %> </td>
+        <td><%= link_to 'Reply', comment %></td>
+      </tr>
+      <tr>
+      <% comment.replies.each do |reply| %>
+        <td><%= reply.content %></td> <!-- mejorar style -->
+      </tr>
+      <%end%>
+    <% end %>
+  </tbody>
+</table>
+<%= render 'static_pages/footer' %>

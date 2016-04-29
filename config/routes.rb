@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :contributions, :comments, :replies
+      get :contributions, :comments, :replies, :asks
     end
   end
   
@@ -28,7 +28,10 @@ Rails.application.routes.draw do
   resources :comments do
       resources :replies
   end
-  
+
+  resources :asks do
+      resources :comments
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -40,7 +43,9 @@ Rails.application.routes.draw do
   
   get 'login' => 'users#new'
   
-  get 'contributions' => 'contributions#index'
+  get '/contributions' => redirect('/')
+  
+  get 'asks' => 'asks#index'
   
   post '/replies' => 'replies#new'
   

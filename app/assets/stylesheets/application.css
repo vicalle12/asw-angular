@@ -96,3 +96,14 @@ body a:hover:before {
     width: 100%;
     
 }
+
+.field .label {
+    float: left;
+    min-width: 50px;
+}
+
+.field #comment_content {
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+}

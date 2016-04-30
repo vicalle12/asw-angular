@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :contributions, :comments, :replies, :asks
+      get :contributions, :comments, :replies
     end
   end
   

@@ -107,3 +107,25 @@ body a:hover:before {
     max-width: 500px;
     height: 150px;
 }
+
+.comentarios {
+    font-size: 12px;
+}
+
+.comentarios .top {
+    font-size: 11px;
+    color: #7d7d7d;
+}
+
+.replies {
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.flex-wrapper {
+    display: flex;
+}
+
+.flex-wrapper .title {
+    min-width: 100px;
+}

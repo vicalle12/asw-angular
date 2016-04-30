@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426081832) do
-
-  create_table "asks", force: :cascade do |t|
-    t.string   "titulo"
-    t.integer  "user_id"
-    t.integer  "puntos"
-    t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "asks", ["user_id", "created_at"], name: "index_asks_on_user_id_and_created_at"
-  add_index "asks", ["user_id"], name: "index_asks_on_user_id"
+ActiveRecord::Schema.define(version: 20160423084545) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -42,28 +30,16 @@ ActiveRecord::Schema.define(version: 20160426081832) do
     t.string   "titulo"
     t.integer  "user_id"
     t.string   "url"
-    t.string   "fecha"
     t.integer  "puntos"
-    t.string   "comentarios"
+    t.text     "comentarios"
     t.string   "tipo"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "contributions", ["user_id", "created_at"], name: "index_contributions_on_user_id_and_created_at"
   add_index "contributions", ["user_id"], name: "index_contributions_on_user_id"
-
-  create_table "microposts", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "contribution_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "microposts", ["contribution_id"], name: "index_microposts_on_contribution_id"
-  add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"
 
   create_table "replies", force: :cascade do |t|
     t.text     "content"
@@ -99,10 +75,10 @@ ActiveRecord::Schema.define(version: 20160426081832) do
     t.integer  "maxvisit"
     t.integer  "minaway"
     t.integer  "delay"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -31,11 +31,15 @@
           </span>
           
           <span>
-            <%= link_to time_ago_in_words(@contribution.created_at), @contribution %>
+            <%= link_to "#{time_ago_in_words(@contribution.created_at)} ago", @contribution %>
           </span>
         </div>
       </div>
     </div>
+  </div>
+  
+  <div>
+    <%= @contribution.text %>
   </div>
   
   <br>
@@ -47,28 +51,29 @@
   <%= link_to 'Edit', edit_contribution_path(@contribution) %> |
   <%= link_to 'Back', contributions_path %>
   
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-  
-    <tbody>
+  <div class="comentarios">
       <% @contribution.comments.each do |comment| %>
-        <tr>
-          <br>
-          <td><%= comment.user %></td>
-          <td><%= comment.content %> </td>
-          <td><%= link_to 'Reply', comment %></td>
-        </tr>
-        <tr>
+          <div class="top">
+            <span><%= comment.user %></span>
+            <span><%= time_ago_in_words( comment.created_at ) %> ago</span>
+          </div>
+          
+          <div><%= comment.content %> </div>
+          <%= link_to 'Reply', comment %>
+          <div class="replies">
         <% comment.replies.each do |reply| %>
-          <td><%= reply.content %></td> <!-- mejorar style -->
-        </tr>
+          <div class="reply">
+            <div class="top">
+              <span><%= reply.user %></span>
+              <span><%= time_ago_in_words( reply.created_at ) %> ago</span>
+            </div>
+            <div class="reply-content">
+              <%= reply.content %> 
+            </div>
+          </div>
         <%end%>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
 </div>
 <%= render 'static_pages/footer' %>

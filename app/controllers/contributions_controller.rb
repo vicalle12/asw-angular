@@ -4,7 +4,8 @@ class ContributionsController < ApplicationController
   # GET /contributions
   # GET /contributions.json
   def index
-    @contributions = Contribution.all
+    @contributions =  Contribution.order("created_at desc").where("url<>'' AND url<>' '  OR url is not null") 
+    Contribution.all.order("created_at desc")
   end
 
   # GET /contributions/1
@@ -16,6 +17,7 @@ class ContributionsController < ApplicationController
   # GET /contributions/new
   def new
     @contribution = Contribution.new
+
   end
 
   # GET /contributions/1/edit
@@ -26,7 +28,6 @@ class ContributionsController < ApplicationController
   # POST /contributions.json
   def create
     @contribution = Contribution.new(contribution_params)
-
     respond_to do |format|
       if @contribution.save
         format.html { redirect_to @contribution, notice: 'Contribution was successfully created.' }

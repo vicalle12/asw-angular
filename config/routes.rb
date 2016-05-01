@@ -33,6 +33,27 @@ Rails.application.routes.draw do
       resources :comments
   end
   
+  resources :contributions do
+  member do
+      put "like", to: "contributions#upvote"
+      put "dislike", to: "contributions#downvote"
+    end
+  end
+  
+  resources :comments do
+  member do
+      put "like", to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
+  
+  resources :replies do
+  member do
+      put "like", to: "replies#upvote"
+      put "dislike", to: "replies#downvote"
+    end
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -50,6 +71,8 @@ Rails.application.routes.draw do
   post '/replies' => 'replies#new'
   
   get '/auth/twitter/callback', to: 'sessions#create'
+  
+  delete '/sign_out', to: 'sessions#destroy'
   
   # get 'comments' => 'comments#new'
   

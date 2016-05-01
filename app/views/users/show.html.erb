@@ -1,3 +1,4 @@
+
   <%= render 'static_pages/header' %>
   <%= render 'static_pages/menu' %>
   <div class="page-content">
@@ -18,7 +19,7 @@
           <div class="title">About:</div>
           <div class="user-content"><%=@user.about %></div>
         </div>
-        <div style="font-weight: bold"> <%= link_to 'submissions', contributions_path(@user) %> </div>
+        <div style="font-weight: bold"> <%= link_to 'contributions', contributions_path(@user) %> </div>
 
         <div style="font-weight: bold"> <%= link_to 'asks', asks_path(@user) %> </div>
         <div style="font-weight: bold"> <%= link_to 'comments', users_path %> </div>
@@ -26,5 +27,6 @@
   </div>
   
   <%= render 'static_pages/footer' %>
+
 
 

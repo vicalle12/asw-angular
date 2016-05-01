@@ -1,5 +1,17 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  
+  def upvote 
+    @comments = Comment.find(params[:id])
+    @comments.upvote_by current_user
+    redirect_to :back
+  end  
+  
+  def downvote
+    @comments = Comment.find(params[:id])
+    @comments.downvote_by current_user
+    redirect_to :back
+  end
 
   # GET /comments
   # GET /comments.json

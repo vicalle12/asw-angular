@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     has_many :contributions, dependent: :destroy
+    acts_as_voter
    
   def self.from_omniauth(auth)
     find_by(provider: auth['provider'], uid: auth['uid']) || create_user_from_omniauth(auth)

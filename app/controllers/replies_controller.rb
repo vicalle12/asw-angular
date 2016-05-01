@@ -1,6 +1,18 @@
 class RepliesController < ApplicationController
   before_action :set_reply, only: [:show, :edit, :update, :destroy]
 
+  def upvote 
+    @replies = Reply.find(params[:id])
+    @replies.upvote_by current_user
+    redirect_to :back
+  end  
+  
+  def downvote
+    @replies = Reply.find(params[:id])
+    @replies.downvote_by current_user
+    redirect_to :back
+  end
+
   # GET /replies
   # GET /replies.json
   def index

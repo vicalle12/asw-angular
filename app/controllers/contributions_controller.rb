@@ -1,11 +1,34 @@
 class ContributionsController < ApplicationController
   before_action :set_contribution, only: [:show, :edit, :update, :destroy]
 
-  def upvote 
-    @contributions = Contribution.find(params[:id])
-    @contributions.upvote_by current_user
-    redirect_to :back
-  end  
+  def upvote
+    if(current_user)
+      @contributions = Contribution.find(params[:id])
+      @contributions.liked_by current_user
+      @contributions.update(puntos: @contributions.votes_for.size)
+      redirect_to root_path
+    else # ve de l'api
+        @contributions = Contribution.find(params[:id])
+        @user = User.find(params[:user_id])
+      
+    if(@user.voted_for? @contributions)
+       render :json => {:status => "403", :error => "L'usuari ja ha votat aquesta contributio"}, status: :forbidden
+    else
+      @contributions.liked_by @user
+      @contributions.update(puntos: @contributions.votes_for.size)
+        
+        respond_to do |format|
+          format.json { render :show, status: :ok, location: @contributions }
+        end
+      end
+    end
+  end
+  
+  #def upvote 
+  #  @contributions = Contribution.find(params[:id])
+  #  @contributions.upvote_by current_user
+  #  redirect_to :back
+  #end
   
   def downvote
     @contributions = Contribution.find(params[:id])

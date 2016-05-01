@@ -36,21 +36,21 @@ Rails.application.routes.draw do
   resources :contributions do
   member do
       put "like", to: "contributions#upvote"
-      put "dislike", to: "contributions#downvote"
+      #put "dislike", to: "contributions#downvote"
     end
   end
   
   resources :comments do
   member do
       put "like", to: "comments#upvote"
-      put "dislike", to: "comments#downvote"
+      #put "dislike", to: "comments#downvote"
     end
   end
   
   resources :replies do
   member do
       put "like", to: "replies#upvote"
-      put "dislike", to: "replies#downvote"
+      #put "dislike", to: "replies#downvote"
     end
   end
   

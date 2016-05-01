@@ -28,6 +28,13 @@
             </div>
             <div class="bottom">
                 <span> <%= contribution.get_upvotes.size %> points,</span>
+                
+                <%= link_to like_contribution_path(contribution), method: :put do %>
+                  Upvote
+                  <%= contribution.get_upvotes.size %>
+                <% end %>
+
+                
                 <span>by <%= link_to "#{getAuthor(contribution.user_id)}", "/users/#{contribution.user_id}", {style: "color: grey"}%></span>
                 <span><%= link_to "#{time_ago_in_words(contribution.created_at)} ago", contribution %> </span>
                 <span><%= link_to "#{contribution.comments.size + contribution.replies.size} comments", contribution %></span>

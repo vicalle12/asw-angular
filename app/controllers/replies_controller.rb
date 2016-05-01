@@ -1,11 +1,29 @@
 class RepliesController < ApplicationController
   before_action :set_reply, only: [:show, :edit, :update, :destroy]
 
-  def upvote 
-    @replies = Reply.find(params[:id])
-    @replies.upvote_by current_user
-    redirect_to :back
-  end  
+  def upvote
+    if(current_user)
+      @replies = Reply.find(params[:id])
+      @replies.liked_by current_user
+      @replies.update(puntos: @replies.votes_for.size)
+      redirect_to "/submissions/#{@replies.submission_id}"
+      
+    else #ve de l'api
+      @replies = Reply.find(params[:id])
+      @user = User.find(params[:user_id])
+      
+      if(@user.voted_for? @replies)
+        render :json => {:status => "403", :error => "L'usuari ja ha votat aquesta reply"}, status: :forbidden
+      else
+        @replies.liked_by @user
+        @replies.update(puntos: @replies.votes_for.size)
+        
+        respond_to do |format|
+          format.json { render :show, status: :ok, location: @replies }
+        end
+      end
+    end
+  end 
   
   def downvote
     @replies = Reply.find(params[:id])

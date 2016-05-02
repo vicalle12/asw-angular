@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
     rescue
       flash[:warning] = "Error en la autentifiacion"
     end
-    
+        redirect_to root_path
+  end
+  
   def destroy
     if current_user
       session.delete(:user_id)
@@ -15,7 +17,5 @@ class SessionsController < ApplicationController
     end
     redirect_to root_path
   end
-    
-    redirect_to root_path
-  end
+  
 end

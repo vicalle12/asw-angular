@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   
   delete '/sign_out', to: 'sessions#destroy'
   
+  
   # get 'comments' => 'comments#new'
   
   # Example of regular route:

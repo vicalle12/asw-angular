@@ -54,7 +54,7 @@
   <div class="comentarios">
       <% @contribution.comments.each do |comment| %>
           <div class="top">
-            <span><%= comment.user %></span>
+            <span><%= comment.user.name %></span>
             <span><%= time_ago_in_words( comment.created_at ) %> ago</span>
           </div>
           

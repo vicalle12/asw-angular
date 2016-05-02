@@ -6,22 +6,8 @@ class CommentsController < ApplicationController
       @comments = Comment.find(params[:id])
       @comments.liked_by current_user
       @comments.update(puntos: @comments.votes_for.size)
-      redirect_to "/submissions/#{@comments.submission_id}"
-    else #ve de l'api
-      @comments = Comment.find(params[:id])
-      @user = User.find(params[:user_id])
-      
-      if(@user.voted_for? @comments)
-        render :json => {:status => "403", :error => "L'usuari ja ha votat aquest comentari"}, status: :forbidden
-      else
-        @comments.liked_by @user
-        @comments.update(puntos: @comments.votes_for.size)
-        
-        respond_to do |format|
-          format.json { render :show, status: :ok, location: @comments }
-        end
-      end
-    end
+    end 
+    redirect_to "/submissions/#{@comment.submission_id}"
   end  
   
   def downvote

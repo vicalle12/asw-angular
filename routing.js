@@ -1,4 +1,4 @@
-angular.module('TareasApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
+angular.module('HackerNewsApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
@@ -7,11 +7,11 @@ angular.module('TareasApp').config(['$stateProvider', '$urlRouterProvider', '$lo
         templateUrl: '/views/partials/layout.html',
         controller: 'LayoutCtrl'
     })
-    .state('login', {
+    .state('home', {
         parent: 'layout',
-        templateUrl: 'views/partials/login.html',
-        url: '/login',
-        controller: 'LoginCtrl'
+        templateUrl: 'views/partials/home.html',
+        url: '/home',
+        controller: 'HomeCtr'
     })
     .state('tareas', {
         parent: 'layout',

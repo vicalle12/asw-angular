@@ -1,4 +1,4 @@
-angular.module('TareasApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
+angular.module('HackerNewsApp').config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
     function($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
@@ -33,7 +33,7 @@ angular.module('TareasApp').config(['$stateProvider', '$urlRouterProvider', '$lo
 }]);
 
 // Un .run se ejecuta cuando la aplicación de angular se ha configurado y ya está corriendo
-angular.module('TareasApp').run(['$rootScope', 'LoginService', '$state', function($rootScope, LoginService, $state) {
+angular.module('HackerNewsApp').run(['$rootScope', 'LoginService', '$state', function($rootScope, LoginService, $state) {
     // Aquí le decimos que cuando se empiece a cambiar de estdo de ui-router
     // Nos compruebe que el usuario está logueado, y si no lo está y el estado requiere
     // autenticación (es diferente de login) entonces redireccionamos al estado login
@@ -46,3 +46,4 @@ angular.module('TareasApp').run(['$rootScope', 'LoginService', '$state', functio
         }
     });
 }]);
+

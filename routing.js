@@ -7,6 +7,7 @@ angular.module('HackerNewsApp').config(['$stateProvider', '$urlRouterProvider', 
         templateUrl: '/views/partials/layout.html',
         controller: 'LayoutCtrl'
     })
+    /*
     .state('home', {
         parent: 'layout',
         templateUrl: 'views/partials/home.html',
@@ -19,16 +20,18 @@ angular.module('HackerNewsApp').config(['$stateProvider', '$urlRouterProvider', 
         url: '/tareas',
         controller: 'TareasCtrl'
     });
+    */
 
     // Cuando la ruta a la que acceda el usuario no sea ninguna
     // de las definidas arriba, redirigimos al login
-    $urlRouterProvider.otherwise('/login');
+    //$urlRouterProvider.otherwise('/login');
 
-    // Con esto evitamos que salga el # siempre en la url
+    /* Con esto evitamos que salga el # siempre en la url
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
     });
+*/
 
 }]);
 

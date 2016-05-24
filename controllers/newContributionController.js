@@ -1,0 +1,1 @@
+angular.module('routing').controller('ContributionsController', ContributionsController);

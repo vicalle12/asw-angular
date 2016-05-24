@@ -15,7 +15,7 @@ function Config($stateProvider, $urlRouterProvider) {
       controller: 'TasksListController'
     });
     */
-    .state('submit', {
+    .state('newContribution', {
       url: '/contributions/new',
       templateUrl: 'templates/newContribution.html',
       controller: 'newContributionController'
@@ -24,6 +24,11 @@ function Config($stateProvider, $urlRouterProvider) {
       url: '/asks',
       templateUrl: 'templates/asks.html',
       controller: 'asksController'
+    })
+    .state('contribution', {
+      url: '/contributions/:contributionId',
+      templateUrl: 'templates/contribution.html',
+      controller: 'ContributionCtrl'
     })
     .state('home', {
       url: '/',

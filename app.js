@@ -35,5 +35,5 @@ function Config($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/home.html',
       controller: 'homeController'
     });
-  $urlRouterProvider.otherwise('/newtask');
+  $urlRouterProvider.otherwise('/');
 }

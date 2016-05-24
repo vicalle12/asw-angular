@@ -1,8 +1,18 @@
-// Dependencias de nuestra aplicación de angular
+angular.module('routing', ['ui.router', 'ngMessages']).config(Config);
 
-// ngMaterial es un módulo que he usado para estilizar
-// la página fácilmente. Es como bootstrap pero integrado en Angular.
-var DEPENDENCIES = ['ngMaterial', 'ui.router'];
+function Config($stateProvider, $urlRouterProvider) {
 
-// Y declaramos el módulo de nuestra aplicación
-angular.module('HackerNewsApp', DEPENDENCIES);
+  $stateProvider
+
+    .state('newtask', {
+      url: '/newtask',
+      templateUrl: 'templates/newtask.html',
+      controller: 'NewTaskController'
+    })
+    .state('taskslist', {
+      url: '/taskslist',
+      templateUrl: 'templates/taskslist.html',
+      controller: 'TasksListController'
+    });
+  $urlRouterProvider.otherwise('/newtask');
+}

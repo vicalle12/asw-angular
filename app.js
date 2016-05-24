@@ -5,9 +5,9 @@ function Config($stateProvider, $urlRouterProvider) {
   $stateProvider
 
     .state('newtask', {
-      url: '/newtask',
-      templateUrl: 'templates/newtask.html',
-      controller: 'NewTaskController'
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'homeCtrl'
     })
     .state('taskslist', {
       url: '/taskslist',

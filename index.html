@@ -8,34 +8,23 @@
   <script src='app.js'></script>
   <script src="controllers/newTaskCtrl.js"></script>
   <script src="controllers/tasksListCtrl.js"></script>
-<<<<<<< HEAD
-    <script src="controllers/home.js"></script>
-=======
->>>>>>> b253f14c5a3e6e9f4cb07071a3b123eb5459695e
+    <script src="controllers/homeCtrl.js"></script>
 
   <meta charset="UTF-8">
-  <title>HackerNews</title>
+  <title>Angular routing</title>
 </head>
 <body ng-app="routing">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="#">HackerNews</a>
+            <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
         </div>
         <ul class="nav navbar-nav">
-            <!--
-            <li><a ui-sref="newtask">Submit</a></li>
-            <li><a ui-sref="taskslist">Asks</a></li>
-            <li><a ui-sref="taskslist">Threads</a></li>
-            -->
-            <li><a ui-sref="submit">Submit</a></li>
-            <li><a ui-sref="asks">Asks</a></li>
-            <li><a ui-sref="threads">Threads</a></li>
+            <li><a ui-sref="newtask">New Task</a></li>
+            <li><a ui-sref="taskslist">Tasks List</a></li>
         </ul>
     </nav>
     <div class="container">
-      <div ui-view>
-        
-      </div>
+        <div ui-view></div>
     </div>
 </body>
 </html>

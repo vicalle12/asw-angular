@@ -7,11 +7,11 @@ angular.module('HackerNewsApp').config(['$stateProvider', '$urlRouterProvider', 
         templateUrl: '/views/partials/layout.html',
         controller: 'LayoutCtrl'
     })
-    .state('login', {
+    .state('home', {
         parent: 'layout',
-        templateUrl: 'views/partials/login.html',
-        url: '/login',
-        controller: 'LoginCtrl'
+        templateUrl: 'views/partials/home.html',
+        url: '/home',
+        controller: 'HomeCtr'
     })
     .state('tareas', {
         parent: 'layout',

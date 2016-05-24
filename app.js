@@ -22,8 +22,13 @@ function Config($stateProvider, $urlRouterProvider) {
     })
     .state('asks', {
       url: '/asks',
-      templateUrl: 'templates/taskslist.html',
-      controller: 'TasksListController'
+      templateUrl: 'templates/asks.html',
+      controller: 'ContributionsController'
+    })
+    .state('home', {
+      url: '/',
+      templateUrl: 'templates/home.html',
+      controller: 'ContributionsController'
     });
   $urlRouterProvider.otherwise('/newtask');
 }

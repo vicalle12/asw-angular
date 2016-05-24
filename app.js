@@ -5,9 +5,9 @@ function Config($stateProvider, $urlRouterProvider) {
   $stateProvider
     /*
     .state('newtask', {
-      url: '/newtask',
-      templateUrl: 'templates/newtask.html',
-      controller: 'NewTaskController'
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'homeCtrl'
     })
     .state('taskslist', {
       url: '/taskslist',
@@ -15,20 +15,25 @@ function Config($stateProvider, $urlRouterProvider) {
       controller: 'TasksListController'
     });
     */
-    .state('submit', {
+    .state('newContribution', {
       url: '/contributions/new',
-      templateUrl: 'templates/submit.html',
-      controller: 'ContributionsController'
+      templateUrl: 'templates/newContribution.html',
+      controller: 'newContributionController'
     })
     .state('asks', {
       url: '/asks',
       templateUrl: 'templates/asks.html',
-      controller: 'ContributionsController'
+      controller: 'asksController'
+    })
+    .state('contribution', {
+      url: '/contributions/:contributionId',
+      templateUrl: 'templates/contribution.html',
+      controller: 'ContributionCtrl'
     })
     .state('home', {
       url: '/',
       templateUrl: 'templates/home.html',
-      controller: 'ContributionsController'
+      controller: 'homeController'
     });
   $urlRouterProvider.otherwise('/newtask');
 }

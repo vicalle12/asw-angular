@@ -36,4 +36,10 @@ function Config($stateProvider, $urlRouterProvider) {
       controller: 'homeController'
     });
   $urlRouterProvider.otherwise('/');
+
+  /*$locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+*/
 }

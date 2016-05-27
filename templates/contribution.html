@@ -1,6 +1,18 @@
-<div>
-	<h1>{{contribution.titulo}}</h1>
-	<div>{{contribution.puntos}}</div>
-	<div>{{contribution.autor}}</div>
-	<div>{{contribution.date}}</div>
+<div class="contribition">
+	<div class="firts-line">
+		<h1>{{titulo}}</h1> 
+		<div class="url">{{url}}</div>
+	</div>
+	<div class="second-line">
+		<div>{{puntos}} points</div>
+		<div>by {{autor}}</div>
+		<div>{{date}}</div>
+	</div>
+</div>
+
+<div class="do-comment">
+	<form ng-submit="sendComment()">
+	    <input ng-model="newComment"/>
+	    <button type="submit">Send</button>
+	</form>
 </div>

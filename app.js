@@ -16,7 +16,7 @@ function Config($stateProvider, $urlRouterProvider) {
     .state('contribution', {
       url: '/contributions/:contributionId',
       templateUrl: 'templates/contribution.html',
-      controller: 'ContributionCtrl'
+      controller: 'ContributionController'
     })
     .state('home', {
       url: '/',

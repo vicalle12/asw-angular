@@ -2,7 +2,15 @@
 
   <ul>
     <li ng-repeat="x in contributions">
-      <a href="/#/contributions/{{x.id}}">{{ x.titulo }}</a>
+      <div ng-if= "x.url != ''">
+        <a href="http://{{x.url}}"> {{x.titulo}}({{x.url}}) </a>
+      </div>
+      <div ng-if="x.url == ''">
+        <a href="/#/contributions/{{x.id}}"> {{ x.titulo }} </a>
+      </div>
+      <span>by {{x.user_id}}</span> <!-- OBTENER NOMBRE USUARIO -->
+      <span> <time am-time-ago= x.created_at ></time>  </span>
+
     </li>
   </ul>
 

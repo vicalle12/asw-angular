@@ -3,6 +3,18 @@ angular.module('routing', ['ui.router', 'ngMessages']).config(Config);
 function Config($stateProvider, $urlRouterProvider) {
 
   $stateProvider
+    /*
+    .state('newtask', {
+      url: '/home',
+      templateUrl: 'templates/home.html',
+      controller: 'homeCtrl'
+    })
+    .state('taskslist', {
+      url: '/taskslist',
+      templateUrl: 'templates/taskslist.html',
+      controller: 'TasksListController'
+    });
+    */
     .state('newContribution', {
       url: '/contributions/new',
       templateUrl: 'templates/newContribution.html',
@@ -21,7 +33,7 @@ function Config($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/',
       templateUrl: 'templates/home.html',
-      controller: 'HomeController'
+      controller: 'homeController'
     });
   $urlRouterProvider.otherwise('/');
 

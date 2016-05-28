@@ -1,4 +1,4 @@
-<div class="contribition ">
+<div class="contribition">
 	<div class="firts-line">
 		<h1>{{titulo}}</h1> 
 		<div class="url">{{url}}</div>
@@ -6,7 +6,7 @@
 	<div class="second-line">
 		<div>{{puntos}} points</div>
 		<div>by {{autor}}</div>
-		<div>{{date}}</div>
+		<div><time am-time-ago= date></time></div>
 	</div>
 </div>
 
@@ -20,7 +20,7 @@
 <div class="comments">
 	<div class="comment-item" ng-repeat="comment in comments">
 		<div class="firts-line">
-			<div class="name">{{comment.id}}</div>
+			<div class="name">{{comment.autor}}</div>
 			<div class="date">{{comment.date}}</div>
 			<div class="points">{{comment.puntos}}</div>
 		</div>
@@ -30,10 +30,11 @@
 		<div class="reply">
 			
 		</div>
-		<div class="replies">
-			<div class="reply-item" ng-reapeat="reply in replies">
+	</div>
+		<!-- <div class="replies">
+			<div class="reply-item" ng-reapeat="">
 				<div class="firts-line">
-					<div class="name">{{reply.id}}</div>
+					<div class="name">{{reply.autor}}</div>
 					<div class="date">{{reply.date}}</div>
 					<div class="points">{{reply.puntos}}</div>
 				</div>
@@ -41,6 +42,5 @@
 					{{reply.content}}
 				</div>
 			</div>
-		</div>
-	</div>
+		</div> -->
 </div>

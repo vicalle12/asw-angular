@@ -1,9 +1,15 @@
-angular.module('routing').controller('HomeController', HomeController);
+angular.module('routing').controller('HomeController', ['$scope', '$http',
+    function ($scope, $http) {
 
-function HomeController($scope, $rootScope) {
-  $scope.contributions = [];
+        var SERVER_URL = 'https://hackernewsasw2016.herokuapp.com/contributions.json';
+        
+        $http.get(SERVER_URL).then(function (response) {
+            $scope.contributions = response.data;
+            console.log($scope.contributions);
+        });
 
-  contributionsService.getContributions().then(function (data) {
-      $scope.contributions = data.data;
-    });
-}
+    /*
+    $scope.contributions = contributionsService.getContributions();
+    console.log($scope.contributions);
+    */
+}]);

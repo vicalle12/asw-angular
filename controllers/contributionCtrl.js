@@ -15,5 +15,11 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
         console.log(data);
       });
     }
+
+    $http.get("https://hackernewsasw2016.herokuapp.com/comments.json?contribution_id="+$stateParams.contributionId+"")
+    .then(function(responsecomments) {
+      $scope.comments = responsecomments.data;
+    });
+
 }]);
 

@@ -11,7 +11,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     });
 
     $scope.sendComment = function(){
-      $http.post("https://hackernewsasw2016.herokuapp.com/comments/", { content: $scope.newComment,contribution_id: $stateParams.contributionId,user_token: "MQ"}).success(function(data, status) {
+      $http.post("https://hackernewsasw2016.herokuapp.com/comments/", { content: $scope.newComment,contribution_id: $stateParams.contributionId,user_token: "MQ"} ).success(function(data, status) {
         console.log(data);
       });
     }

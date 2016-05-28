@@ -1,4 +1,5 @@
-angular.module('routing', ['ui.router', 'ngMessages']).config(Config);
+angular.module('routing', ['ui.router', 'ngMessages', 'angularMoment']).config(Config);
+
 
 function Config($stateProvider, $urlRouterProvider) {
 

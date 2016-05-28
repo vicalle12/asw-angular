@@ -1,0 +1,60 @@
+.navbar-inverse {
+	background-color: orange;
+	border: none;
+	border-radius: 0;
+	color: black;
+}
+
+body {
+	background-color: #F6F6EF;
+}
+
+.navbar-inverse .navbar-nav>li>a,
+.navbar-inverse .navbar-brand {
+	color: black;
+}
+
+.first-line,
+.second-line {
+	display: flex;
+	display: -webkit-flex;
+	align-items: flex-end;
+}
+
+.first-line div,
+.second-line div {
+	margin-right: 10px;
+}
+
+h1 {
+	margin: 0;
+}
+
+.replies {
+	margin-left: 20px;
+}
+
+.comment-item {
+	margin-bottom: 20px;
+}
+
+.contribition {
+	margin-bottom: 15px;
+}
+
+.do-comment {
+	margin-bottom: 50px;
+}
+
+.name {
+	font-weight: bold;
+}
+
+.comments .first-line {
+	color: gray;
+}
+
+.vote {
+	font-size: 15px;
+	margin-left: -20px;
+}

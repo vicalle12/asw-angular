@@ -1,9 +1,6 @@
 angular.module('routing').controller('homeController', ['$scope', '$http',
     function ($scope, $http) {
 
-        //if (!localStorage.getItem('hackerNewsToken')) $scope.signText='Sign In';
-        //else $scope.signText='Sign Out';
-
         var SERVER_URL = 'https://hackernewsasw2016.herokuapp.com/contributions.json';
 
 

@@ -1,7 +1,9 @@
-angular.module('routing', ['ui.router', 'ngMessages', 'angularMoment']).config(Config);
+//angular.module('routing', ['ui.router', 'ngMessages', 'angularMoment']).config(Config);
+
+var hNapp = angular.module('routing', ['ui.router', 'ngMessages', 'angularMoment']);
 
 
-function Config($stateProvider, $urlRouterProvider) {
+hNapp.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     /*
@@ -48,9 +50,9 @@ function Config($stateProvider, $urlRouterProvider) {
             requireBase: false
         });
 */
-}
+});
 
-var hNapp = angular.module('routing', []);
+//var hNapp = angular.module('routing', []);
 
 hNapp.controller('mainController', function MainController($scope) {
   if (!localStorage.getItem('hackerNewsToken')) $scope.signText='Sign In';

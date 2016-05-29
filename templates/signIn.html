@@ -1,0 +1,12 @@
+<h2>Sign in with your account</h2>
+<form name="loginForm" novalidate>
+	<div class="form-group" ng-class="{'has-error': loginForm.id.$dirty && loginForm.id.$invalid}">
+		<input type="text" ng-model="userID" required class="form-control" placeholder="Your user id" name="id" id="id">
+		<ng-messages for="loginForm.id.$error" class="text-danger" ng-if="loginForm.id.$dirty">
+		<ng-message when="required">This field is required</ng-message>
+		</ng-messages>
+	</div>
+	<div>
+		<button class="btn btn-success btn-large" ng-disabled="loginForm.$invalid" ng-click="signIn()">Sign In</button>
+	</div>
+</form>

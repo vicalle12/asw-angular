@@ -31,6 +31,11 @@ function Config($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/contribution.html',
       controller: 'ContributionController'
     })
+    .state('signIn', {
+      url: '/signIn',
+      templateUrl: 'templates/signIn.html',
+      controller: 'SignInController'
+    })
     .state('home', {
       url: '/',
       templateUrl: 'templates/home.html',
@@ -44,3 +49,10 @@ function Config($stateProvider, $urlRouterProvider) {
         });
 */
 }
+
+var hNapp = angular.module('routing', []);
+
+hNapp.controller('mainController', function MainController($scope) {
+  if (!localStorage.getItem('hackerNewsToken')) $scope.signText='Sign In';
+  else $scope.signText='Sign Out';
+});

@@ -55,11 +55,6 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
 //var hNapp = angular.module('routing', []);
 
 hNapp.controller('mainController', function MainController($scope) {
-  if (!localStorage.getItem('hackerNewsToken')) $scope.signText='Sign In';
+  if (!localStorage.getItem('hackerNewsToken') || localStorage.getItem('hackerNewsToken')== null) $scope.signText='Sign In';
   else $scope.signText='Sign Out';
-
-  if ($scope.signText=='Sign Out') {
-    //quiere decir que ha pulsado el sign Out, por lo que lo deslogueamos
-    localStorage.setItem('hackerNewsToken', null);
-  }
 });

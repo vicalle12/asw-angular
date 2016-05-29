@@ -6,16 +6,11 @@ angular.module('routing').controller('homeController', ['$scope', '$http',
 
         $http.get(SERVER_URL).then(function (response) {
             $scope.contributions = response.data;
-            console.log("HOLA");
             for (var i=0; i<$scope.contributions.length; ++i) {
+                console.log($scope.contributions[i].titulo)
                 var autores = getAutores(i);
                 var comments = getComments (i, $scope.contributions)
             }
-            /*
-            $http.get("https://hackernewsasw2016.herokuapp.com/users/"+response.data.user_id+".json").then(function(response2) {
-                $scope.contributions.autor = response2.data.name;
-            });
-            */
         });
 
 
@@ -44,14 +39,14 @@ angular.module('routing').controller('homeController', ['$scope', '$http',
             $http.get("https://hackernewsasw2016.herokuapp.com/replies.json?comment_id="+object[j].id)
                 .success(function(data) {
                     $scope.contributions[i].replies += data.length;
-                    console.log(data);
+                    //console.log(data);
                 });
         }
 
         $scope.voteContribution = function(id){
             $http.put("https://hackernewsasw2016.herokuapp.com/contributions/"+id+"/like", { user_token: "MQ"} )
                 .success(function(data, status) {
-                    console.log("he votado");
+                    //console.log("he votado");
                     window.location.reload();
                 });
         }

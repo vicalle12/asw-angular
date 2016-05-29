@@ -1,6 +1,6 @@
 <div ng-app="routing">
 
-    <div ng-repeat="x in contributions">
+    <div class="contributions" ng-repeat="x in contributions">
 
       <div class="first-line">
         <div class="vote" ng-click="voteContribution(x.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
@@ -20,6 +20,7 @@
       <span> <time am-time-ago= x.created_at ></time>  </span>
 
       <span> <a href="/#/contributions/{{x.id}}">  {{x.comments + x.replies}} comments </a> </span>
+
 
     </div>
 

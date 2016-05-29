@@ -1,12 +1,13 @@
-<div class="contribition ">
-	<div class="firts-line">
+<div class="contribition">
+	<div class="first-line">
+		<div class="vote" ng-click="voteContribution(cid)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
 		<h1>{{titulo}}</h1> 
 		<div class="url">{{url}}</div>
 	</div>
 	<div class="second-line">
 		<div>{{puntos}} points</div>
-		<div>by {{autor}}</div>
-		<div>{{date}}</div>
+		<div class="name">by {{autor}}</div>
+		<div><time am-time-ago = date></time></div>
 	</div>
 </div>
 
@@ -19,28 +20,38 @@
 
 <div class="comments">
 	<div class="comment-item" ng-repeat="comment in comments">
-		<div class="firts-line">
-			<div class="name">{{comment.id}}</div>
-			<div class="date">{{comment.date}}</div>
-			<div class="points">{{comment.puntos}}</div>
+		<div class="first-line">
+			<div class="vote" ng-click="voteComment(comment.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+			<div class="name">{{comment.autor}}</div>
+			<div class="date"><time am-time-ago = comment.created_at ></time></div>
+			<div class="points">{{comment.puntos}} points</div>
 		</div>
-		<div class="secont-line">
+		<div class="second-line">
 			{{comment.content}}
 		</div>
 		<div class="reply">
-			
+			<a href="" ng-click="showForm(comment.id)">Reply</a>
 		</div>
+
 		<div class="replies">
-			<div class="reply-item" ng-reapeat="reply in replies">
-				<div class="firts-line">
-					<div class="name">{{reply.id}}</div>
-					<div class="date">{{reply.date}}</div>
-					<div class="points">{{reply.puntos}}</div>
+			<div class="reply-item" ng-repeat="reply in comment.replies">
+				<div class="first-line">
+					<div class="vote" ng-click="voteReply(reply.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
+					<div class="name">{{reply.autor}}</div>
+					<div class="date"><time am-time-ago = reply.created_at ></time></div>
+					<div class="points">{{reply.puntos}} points</div>
 				</div>
-				<div class="secont-line">
+				<div class="second-line">
 					{{reply.content}}
 				</div>
 			</div>
 		</div>
+	</div>
+	<div ng-show="showFormS" >
+		<form ng-submit="sendReply()">
+		    <input ng-model="newReply"/>
+		    <input ng-show="false" ng-model="newReplyID"/>
+		    <button type="submit">Send</button>
+		</form>
 	</div>
 </div>

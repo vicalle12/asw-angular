@@ -38,6 +38,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/signIn.html',
       controller: 'SignInController'
     })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'templates/profile.html',
+      controller: 'ProfileController'
+    })
     .state('home', {
       url: '/',
       templateUrl: 'templates/home.html',
@@ -56,5 +61,8 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
 
 hNapp.controller('mainController', function MainController($scope) {
   if (!localStorage.getItem('hackerNewsToken') || localStorage.getItem('hackerNewsToken')== null) $scope.signText='Sign In';
-  else $scope.signText='Sign Out';
+  else {
+    $scope.signText='Sign Out';
+    $scope.profile = 'Profile';
+  }
 });

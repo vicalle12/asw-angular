@@ -13,7 +13,8 @@ angular.module('routing').controller('SignInController', ['$scope', '$http',
                     //console.log("b64", btoa(id));
                     var aux = ""+btoa(id);
                     localStorage.setItem('hackerNewsToken', aux);
-                    console.log("token->",localStorage.getItem('hackerNewsToken'));
+                    localStorage.setItem('id', id);
+                    //console.log("token->",localStorage.getItem('hackerNewsToken'));
 
                     location.reload();
                 }
@@ -21,11 +22,11 @@ angular.module('routing').controller('SignInController', ['$scope', '$http',
             function(data) {
                alert("Error: "+data.data.error); 
             });
-            console.log("token->",localStorage.getItem('hackerNewsToken'));
         }
 
         $scope.signOut = function(){
             localStorage.removeItem('hackerNewsToken');
+            localStorage.removeItem('id');
             location.reload();
         }
     }

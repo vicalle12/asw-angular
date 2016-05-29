@@ -1,4 +1,4 @@
-<div ng-app="routing" ng-controller="HomeController">
+<div ng-app="routing">
 
   <ul>
     <li ng-repeat="x in contributions">
@@ -8,7 +8,7 @@
       <div ng-if="x.url == ''">
         <a href="/#/contributions/{{x.id}}"> {{ x.titulo }} </a>
       </div>
-      <span>by {{x.user_id}}</span> <!-- OBTENER NOMBRE USUARIO -->
+      <span>by {{getAuthor(x.user_id)}}</span> <!-- OBTENER NOMBRE USUARIO -->
       <span> <time am-time-ago= x.created_at ></time>  </span>
 
     </li>

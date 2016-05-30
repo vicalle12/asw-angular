@@ -5,6 +5,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
       $scope.puntos = response.data.puntos;
       $scope.cid = response.data.id;
       $scope.url = response.data.url;
+      $scope.user_id = response.data.user_id;
       $http.get("https://hackernewsasw2016.herokuapp.com/users/"+response.data.user_id+".json").then(function(response2) {
         $scope.autor = response2.data.name;  
       });

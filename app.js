@@ -57,6 +57,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'templates/home.html',
       controller: 'homeController'
+    })
+    .state('user', {
+      url: '/users/:userId',
+      templateUrl: 'templates/user.html',
+      controller: 'UserController'
     });
   $urlRouterProvider.otherwise('/');
 

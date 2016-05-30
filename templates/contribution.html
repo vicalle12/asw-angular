@@ -6,7 +6,7 @@
 	</div>
 	<div class="second-line">
 		<div>{{puntos}} points</div>
-		<div class="name">by {{autor}}</div>
+		<div class="name"><a href="/#/users/{{user_id}}">by {{autor}}</a></div>
 		<div><time am-time-ago = date></time></div>
 	</div>
 </div>
@@ -22,7 +22,7 @@
 	<div class="comment-item" ng-repeat="comment in comments">
 		<div class="first-line">
 			<div class="vote" ng-click="voteComment(comment.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-			<div class="name">{{comment.autor}}</div>
+			<div class="name"><a href="/#/users/{{comment.user_id}}">{{comment.autor}}</a></div>
 			<div class="date"><time am-time-ago = comment.created_at ></time></div>
 			<div class="points">{{comment.puntos}} points</div>
 		</div>
@@ -37,7 +37,7 @@
 			<div class="reply-item" ng-repeat="reply in comment.replies">
 				<div class="first-line">
 					<div class="vote" ng-click="voteReply(reply.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-					<div class="name">{{reply.autor}}</div>
+					<div class="name"><a href="/#/users/{{reply.user_id}}">{{reply.autor}}</a></div>
 					<div class="date"><time am-time-ago = reply.created_at ></time></div>
 					<div class="points">{{reply.puntos}} points</div>
 				</div>

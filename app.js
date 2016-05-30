@@ -35,7 +35,7 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
     })
 	.state('threads', {
 		url: '/threads',
-		templateUrl: 'templates/threads',
+		templateUrl: 'templates/threads.html',
 		controller: 'threadsController'
 	})
     .state('signIn', {

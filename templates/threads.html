@@ -1,5 +1,5 @@
 <div ng-app="routing">
-	<h3> My Comments <h3>
+	<h3> My Comments </h3>
     <div class="contributions" ng-repeat="x in comments">
 		<div class="first-line">
 			<div class="vote" ng-click="voteComment(x.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
@@ -8,7 +8,7 @@
 		<span> <time am-time-ago= x.created_at ></time>  </span>
 		<span> <a href="/#/contributions/{{x.contribution_id}}"> | on: {{x.contrib_title}} </a> </span>
     </div>
-	<h3> My Replies <h3>
+	<h3> My Replies </h3>
     <div class="contributions" ng-repeat="x in replies">
 		<div class="first-line">
 			<div class="vote" ng-click="voteReply(x.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>

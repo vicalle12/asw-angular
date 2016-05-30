@@ -31,14 +31,14 @@ angular.module('routing').controller('threadsController', ['$scope', '$http', fu
 
 		
 		$scope.voteComment = function(id){
-		  $http.put("https://hackernewsasw2016.herokuapp.com/comments/"+id+"/like", { user_token: "MQ"} )
+		  $http.put("https://hackernewsasw2016.herokuapp.com/comments/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken')} )
 		  .success(function(data, status) {
 			window.location.reload();
 		  });
 		}
 
 		$scope.voteReply = function(id){
-		  $http.put("https://hackernewsasw2016.herokuapp.com/replies/"+id+"/like", { user_token: "MQ"} )
+		  $http.put("https://hackernewsasw2016.herokuapp.com/replies/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken')} )
 		  .success(function(data, status) {
 			window.location.reload();
 		  });

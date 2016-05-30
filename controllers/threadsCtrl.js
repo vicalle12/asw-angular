@@ -4,22 +4,32 @@ angular.module('routing').controller('threadsController', ['$scope', '$http', fu
 		$http.get("https://hackernewsasw2016.herokuapp.com/users/"+id+"?submission_type=comments").then(function(response) {
 			$scope.comments = response.data;
 			for (var j = 0; j < $scope.comments.length; j++) {
-				$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$scope.comments[j].contribution_id+".json").then(function(response2) {
-					$scope.comments[j].contrib_title = response2.data.titulo;  
-				});
+				var contrib_title = getContribTitleFromComment(j, $scope.comments); 
             }
 			
 		});
 		
-		$http.get("https://hackernewsasw2016.herokuapp.com/users/"+id+"?submission_type=replies").then(function(response3) {
-			$scope.replies = response3.data;
+		$http.get("https://hackernewsasw2016.herokuapp.com/users/"+id+"?submission_type=replies").then(function(response2) {
+			$scope.replies = response2.data;
 			for (var j = 0; j < $scope.replies.length; j++) {
-				$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$scope.replies[j].contribution_id+".json").then(function(response4) {
-					$scope.replies[j].contrib_title = response4.data.titulo;  
-				});
+				var contrib_title = getContribTitleFromReply(j, $scope.replies); 
             }
 		});
-				
+		
+		var getContribTitleFromComment = function(i, object){
+			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$object[j].contribution_id+".json").then(function(response3) {
+				$scope.comments[i].contrib_title = response3.data.titulo;  
+			});
+		}
+		
+		var getContribTitleFromReply = function(i, object){
+			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$object[j].contribution_id+".json").then(function(response4) {
+				$scope.replies[i].contrib_title = response4.data.titulo;  
+			});
+		}
+		
+
+		
 		$scope.voteComment = function(id){
 		  $http.put("https://hackernewsasw2016.herokuapp.com/comments/"+id+"/like", { user_token: "MQ"} )
 		  .success(function(data, status) {

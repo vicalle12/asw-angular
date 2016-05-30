@@ -33,6 +33,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/contribution.html',
       controller: 'ContributionController'
     })
+	.state('threads', {
+		url: '/threads',
+		templateUrl: 'templates/threads',
+		controller: 'threadsController'
+	})
     .state('signIn', {
       url: '/signIn',
       templateUrl: 'templates/signIn.html',
@@ -64,5 +69,6 @@ hNapp.controller('mainController', function MainController($scope) {
   else {
     $scope.signText='Sign Out';
     $scope.profile = 'Profile';
+	$scope.threads = 'Threads';
   }
 });

@@ -2,7 +2,7 @@
     <h2>Submit</h2>
 
 	<div>
-		<form ng-controller="submitController">
+		<form ng-submit="submitContribution()">
 			<div>
 				<label for="contribution_titulo">Titulo</label>
 				<input ng-model="contributionTitle" id="contribution_titulo" type="text">
@@ -16,7 +16,7 @@
 				<textarea ng-model="contributionContent" id="contribution_content"></textarea>
 			</div>
 			<div>
-				<button type="submit" ng-click="submitContribution()">Send</button>
+				<button type="submit">Send</button>
 			</div>
 		</form>
 	</div>

@@ -3,13 +3,12 @@
 		<div ng-if="x.url == ''">
 			<div class="first-line">
 				<div class="vote" ng-click="voteContribution(x.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-				<a href="/#/contributions/{{x.id}}"> {{ x.titulo }} </a>
+				<a href="/#/contributions/{{x.id}}"> {{ x.titulo }} </a>			
 			</div>
-        </div>
-      </div>
-      <span> {{x.puntos}} puntos</span>
-      <span><a href="/#/users/{{x.user_id}}"> by {{x.autor}} </a> </span>
-      <span> <time am-time-ago= x.created_at ></time>  </span>
-      <span> <a href="/#/contributions/{{x.id}}">  {{x.comments + x.replies}} comments </a> </span>
+			<span> {{x.puntos}} puntos</span>
+			<span><a href="/#/users/{{x.user_id}}"> by {{x.autor}} </a> </span>
+			<span> <time am-time-ago= x.created_at ></time>  </span>
+			<span> <a href="/#/contributions/{{x.id}}">  {{x.comments + x.replies}} comments </a> </span>
+		</div>
     </div>
 </div>

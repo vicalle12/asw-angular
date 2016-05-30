@@ -17,13 +17,13 @@ angular.module('routing').controller('threadsController', ['$scope', '$http', fu
 		});
 		
 		var getContribTitleFromComment = function(i, object){
-			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$object[j].contribution_id+".json").then(function(response3) {
+			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+object[i].contribution_id+".json").then(function(response3) {
 				$scope.comments[i].contrib_title = response3.data.titulo;  
 			});
 		}
 		
 		var getContribTitleFromReply = function(i, object){
-			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+$object[j].contribution_id+".json").then(function(response4) {
+			$http.get("https://hackernewsasw2016.herokuapp.com/contributions/"+object[i].contribution_id+".json").then(function(response4) {
 				$scope.replies[i].contrib_title = response4.data.titulo;  
 			});
 		}

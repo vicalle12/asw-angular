@@ -23,6 +23,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/newContribution.html',
       controller: 'newContributionController'
     })
+	.state('submit', {
+      url: '/submit',
+      templateUrl: 'templates/submit.html',
+      controller: 'submitController'
+    })
     .state('asks', {
       url: '/asks',
       templateUrl: 'templates/asks.html',

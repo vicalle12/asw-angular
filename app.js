@@ -23,6 +23,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/newContribution.html',
       controller: 'newContributionController'
     })
+	.state('submit', {
+      url: '/submit',
+      templateUrl: 'templates/submit.html',
+      controller: 'submitController'
+    })
     .state('asks', {
       url: '/asks',
       templateUrl: 'templates/asks.html',
@@ -33,6 +38,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/contribution.html',
       controller: 'ContributionController'
     })
+	.state('threads', {
+		url: '/threads',
+		templateUrl: 'templates/threads.html',
+		controller: 'threadsController'
+	})
     .state('signIn', {
       url: '/signIn',
       templateUrl: 'templates/signIn.html',
@@ -47,6 +57,11 @@ hNapp.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'templates/home.html',
       controller: 'homeController'
+    })
+    .state('user', {
+      url: '/users/:userId',
+      templateUrl: 'templates/user.html',
+      controller: 'UserController'
     });
   $urlRouterProvider.otherwise('/');
 
@@ -64,5 +79,6 @@ hNapp.controller('mainController', function MainController($scope) {
   else {
     $scope.signText='Sign Out';
     $scope.profile = 'Profile';
+	$scope.threads = 'Threads';
   }
 });

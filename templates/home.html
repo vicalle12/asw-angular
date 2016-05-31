@@ -4,10 +4,10 @@
 
       <div class="first-line">
         <div class="vote" ng-click="voteContribution(x.id)"><i class="fa fa-caret-up" aria-hidden="true"></i></div>
-        <div ng-if= "x.url != ''">
+        <div ng-if= "!angular.isUndefined(x.url) && !(x.url === null)">
           <a href="http://{{x.url}}"> {{x.titulo}}({{x.url}}) </a>
         </div>
-        <div ng-if="x.url == ''">
+        <div ng-if="angular.isUndefined(x.url) || x.url === null">
           <a href="/#/contributions/{{x.id}}"> {{ x.titulo }} </a>
         </div>
       </div>

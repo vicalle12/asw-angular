@@ -5,6 +5,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
       $scope.puntos = response.data.puntos;
       $scope.cid = response.data.id;
       $scope.url = response.data.url;
+      $scope.user_id = response.data.user_id;
       $http.get("https://hackernewsasw2016.herokuapp.com/users/"+response.data.user_id+".json").then(function(response2) {
         $scope.autor = response2.data.name;  
       });
@@ -12,7 +13,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     });
 
     $scope.sendComment = function(){
-      $http.post("https://hackernewsasw2016.herokuapp.com/comments/", { content: $scope.newComment,contribution_id: $stateParams.contributionId,user_token: "MQ"} )
+      $http.post("https://hackernewsasw2016.herokuapp.com/comments/", { content: $scope.newComment,contribution_id: $stateParams.contributionId,user_token: localStorage.getItem('hackerNewsToken') } )
       .success(function(data, status) {
         //console.log(data);
         window.location.reload();
@@ -54,7 +55,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     }
 
     $scope.voteContribution = function(id){
-      $http.put("https://hackernewsasw2016.herokuapp.com/contributions/"+id+"/like", { user_token: "MQ"} )
+      $http.put("https://hackernewsasw2016.herokuapp.com/contributions/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken') } )
       .success(function(data, status) {
         console.log("he votado");
         window.location.reload();
@@ -62,7 +63,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     }
 
     $scope.voteComment = function(id){
-      $http.put("https://hackernewsasw2016.herokuapp.com/comments/"+id+"/like", { user_token: "MQ"} )
+      $http.put("https://hackernewsasw2016.herokuapp.com/comments/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken') } )
       .success(function(data, status) {
         console.log("he votado");
         window.location.reload();
@@ -70,7 +71,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     }
 
     $scope.voteReply = function(id){
-      $http.put("https://hackernewsasw2016.herokuapp.com/replies/"+id+"/like", { user_token: "MQ"} )
+      $http.put("https://hackernewsasw2016.herokuapp.com/replies/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken') } )
       .success(function(data, status) {
         console.log("he votado");
         window.location.reload();
@@ -80,7 +81,7 @@ angular.module('routing').controller('ContributionController', ['$scope', '$http
     $scope.sendReply = function(){
       console.log("content:"+ $scope.newReply);
       console.log("idC:"+$scope.newReplyID);
-      $http.post("https://hackernewsasw2016.herokuapp.com/replies/", { content: $scope.newReply, comment_id: $scope.newReplyID, user_token: "MQ"} )
+      $http.post("https://hackernewsasw2016.herokuapp.com/replies/", { content: $scope.newReply, comment_id: $scope.newReplyID, user_token: localStorage.getItem('hackerNewsToken')  } )
       .success(function(data, status) {
         //console.log(data);
         window.location.reload();

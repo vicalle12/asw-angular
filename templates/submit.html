@@ -1,0 +1,26 @@
+<div ng-app="routing">
+    <h2>Submit</h2>
+
+	<div>
+		<form ng-submit="submitContribution()">
+			<div>
+				<label for="contribution_titulo">Titulo</label>
+				<input ng-model="contributionTitle" id="contribution_titulo" type="text">
+			</div>
+			<div>
+				<label for="contribution_url">Url</label>
+				<input ng-model="contributionUrl" id="contribution_url" type="text">
+			</div>
+			<div>
+				<label for="contribution_content">Text</label>
+				<textarea ng-model="contributionContent" id="contribution_content"></textarea>
+			</div>
+			<div>
+				<button type="submit">Send</button>
+			</div>
+		</form>
+	</div>
+	<p>Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</p>
+
+    <a href="#/">Back</a>
+</div>

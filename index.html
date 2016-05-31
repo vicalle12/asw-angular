@@ -12,6 +12,9 @@
   <script src="controllers/homeCtrl.js"></script>
   <script src="controllers/contributionCtrl.js"></script>
   <script src="controllers/asksCtrl.js"></script>
+  <script src="controllers/threadsCtrl.js"></script>
+  <script src="controllers/submitCtrl.js"></script>
+  <script src="controllers/userCtrl.js"></script>
 
   <script src="controllers/signInCtrl.js"></script>
   <script src="controllers/profileCtrl.js"></script>
@@ -30,12 +33,12 @@
 <body ng-app="routing" ng-controller="mainController">
     <nav class="navbar navbar-inverse" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" ui-sref="#">HackerNews</a>
+            <a class="navbar-brand" href="/">HackerNews</a>
         </div>
         <ul class="nav navbar-nav">
             <li><a ui-sref="submit">Submit</a></li>
             <li><a ui-sref="asks">Asks</a></li>
-            <li><a ui-sref="threads">Threads</a></li>
+            <li><a ui-sref="threads">{{threads}}</a></li>
             <li><a ui-sref="profile">{{profile}}</a></li>
             <li><a ui-sref="signIn">{{signText}}</a></li>
         </ul>

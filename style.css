@@ -21,6 +21,10 @@ body {
 	align-items: flex-end;
 }
 
+.first-line {
+	font-weight: bold;
+}
+
 .first-line div,
 .second-line div {
 	margin-right: 10px;
@@ -57,6 +61,7 @@ h1 {
 .vote {
 	font-size: 15px;
 	margin-left: -20px;
+	cursor: pointer;
 }
 
 .contributions {

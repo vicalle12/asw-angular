@@ -44,7 +44,7 @@ angular.module('routing').controller('homeController', ['$scope', '$http',
         }
 
         $scope.voteContribution = function(id){
-            $http.put("https://hackernewsasw2016.herokuapp.com/contributions/"+id+"/like", { user_token: "MQ"} )
+            $http.put("https://hackernewsasw2016.herokuapp.com/contributions/"+id+"/like", { user_token: localStorage.getItem('hackerNewsToken') } )
                 .success(function(data, status) {
                     //console.log("he votado");
                     window.location.reload();
